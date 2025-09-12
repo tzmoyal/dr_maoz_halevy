@@ -22,7 +22,7 @@ import MigraneInPregnancy from "./MigraneInPregnancy";
 
 import VestibularMigraine from "./VestibularMigraine";
 
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation, useNavigationType } from 'react-router-dom';
 
 const PAGES = {
     
@@ -66,11 +66,23 @@ function _getCurrentPage(url) {
 // Create a wrapper component that uses useLocation inside the Router context
 function PagesContent() {
     const location = useLocation();
+    const navType = useNavigationType();
     const currentPage = _getCurrentPage(location.pathname);
-    
+
+    React.useEffect(() => {
+        if (location.state?.restoreScrollY !== undefined) {
+            window.scrollTo({ top: location.state.restoreScrollY });
+        } else if (navType === 'POP') {
+            // Let browser restore on back/forward
+        } else {
+            // Default scroll to top on new navigations
+            window.scrollTo({ top: 0 });
+        }
+    }, [location.key]);
+
     return (
         <Layout currentPageName={currentPage}>
-            <Routes>            
+            <Routes>
                 
                     <Route path="/" element={<Home />} />
                 
