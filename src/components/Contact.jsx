@@ -79,6 +79,14 @@ Sent from Dr. Eyal Maoz Halevy website contact form
             <div className="grid gap-6">
               {t.contact.info.map((info, index) => {
                 const Icon = contactIcons[index];
+                let linkHref = null;
+                const isCall = info.title === 'Call Us' || info.title === 'התקשרו אלינו';
+                const isWhatsApp = info.title === 'WhatsApp' || info.title === 'וואטסאפ';
+                const isEmail = info.title === 'Email' || info.title === 'אימייל';
+                if (isCall) linkHref = 'tel:035496949';
+                if (isWhatsApp) linkHref = 'https://wa.me/972502804723';
+                if (isEmail) linkHref = 'mailto:office@stroke-il.com';
+
                 return (
                   <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 bg-white">
                     <CardContent className="p-6">
@@ -88,7 +96,18 @@ Sent from Dr. Eyal Maoz Halevy website contact form
                         </div>
                         <div className="flex-1">
                           <h3 className="text-xl font-bold text-gray-900 mb-1">{info.title}</h3>
-                          <p className="text-gray-700 font-medium break-all">{info.details}</p>
+                          {linkHref ? (
+                            <a
+                              href={linkHref}
+                              target={isWhatsApp ? '_blank' : undefined}
+                              rel={isWhatsApp ? 'noopener noreferrer' : undefined}
+                              className={`font-medium break-all underline ${isWhatsApp ? 'text-green-600 hover:text-green-700' : 'text-blue-600 hover:text-blue-700'}`}
+                            >
+                              {info.details}
+                            </a>
+                          ) : (
+                            <p className="text-gray-700 font-medium break-all">{info.details}</p>
+                          )}
                           <p className="text-sm text-gray-500">{info.subtext}</p>
                         </div>
                       </div>
