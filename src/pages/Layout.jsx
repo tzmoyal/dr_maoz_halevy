@@ -8,20 +8,22 @@ import { createPageUrl } from '@/utils';
 const Header = () => {
   const { t, toggleLanguage } = useLanguage();
   const location = useLocation();
-  const onHomePage = location.pathname === createPageUrl('Home') || location.pathname === '/';
+  const onHomePage = location.pathname === '/' || location.pathname.toLowerCase() === '/home';
 
   const getLink = (path, name) => {
     if (onHomePage) {
       return <a href={path} className="text-gray-600 hover:text-blue-600 transition-colors">{name}</a>;
     }
-    return <Link to={`${createPageUrl('Home')}${path}`} className="text-gray-600 hover:text-blue-600 transition-colors">{name}</Link>;
+    // Ensure navigation goes to home with an anchor (e.g., "/#contact")
+    const to = path.startsWith('#') ? `/${path}` : path;
+    return <Link to={to} className="text-gray-600 hover:text-blue-600 transition-colors">{name}</Link>;
   };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg shadow-sm">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center py-4">
-          <Link to={createPageUrl('Home')} className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3">
             <div className="w-16 h-16 rounded-lg overflow-hidden bg-white shadow-sm">
               <img 
                 src="/assets/logo.png" 
