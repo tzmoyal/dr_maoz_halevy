@@ -86,11 +86,11 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
-        <div className={`flex flex-col items-center gap-12 lg:gap-16 ${language === 'he' ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
+        <div className={`flex flex-col items-center gap-12 lg:gap-16 lg:flex-row`}>
           {/* Content */}
           <div className={`space-y-8 max-w-3xl ${language === 'he' ? 'text-right' : 'text-left'}`}>
             <div className="space-y-4">
-              <h1 className={`text-5xl lg:text-7xl font-bold text-gray-900 leading-tight ${language === 'he' ? '' : ''}`}>
+              <h1 className={`text-5xl lg:text-7xl font-bold text-gray-900 leading-tight`}>
                 {t.hero.title1}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">{t.hero.title2}</span>
               </h1>
@@ -98,7 +98,7 @@ export default function Hero() {
                 {t.hero.description}
               </p>
             </div>
-            <div className={`flex flex-col sm:flex-row gap-4 ${language === 'he' ? 'justify-end' : 'justify-start'}`}>
+            <div className={`flex flex-col sm:flex-row gap-4 justify-start`}>
               <a href="#contact">
                 <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
                   <Calendar className={`w-5 h-5 ${language === 'he' ? 'ml-2' : 'mr-2'}`} />
@@ -112,7 +112,7 @@ export default function Hero() {
                 </Button>
               </a>
             </div>
-            <div className={`flex items-center gap-6 text-gray-700 ${language === 'he' ? 'justify-end' : 'justify-start'}`}>
+            <div className={`flex items-center gap-6 text-gray-700 justify-start`}>
               <div className="flex items-center gap-2">
                 <MapPin className="w-5 h-5" />
                 <span>{t.hero.location}</span>

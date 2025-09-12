@@ -102,7 +102,7 @@ const Footer = () => {
     const { t } = useLanguage();
 
     return (
-        <footer className="bg-gray-900 text-white py-12" id="footer">
+        <footer className="bg-gray-900 text-white py-12" id="footer" role="contentinfo">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="grid md:grid-cols-4 gap-8">
                     <div className="md:col-span-2">
@@ -127,9 +127,9 @@ const Footer = () => {
                     <div>
                         <h4 className="font-bold mb-4">{t.footer.contact}</h4>
                         <div className="space-y-2 text-gray-400">
-                            <div><a href="tel:035496949" className="underline hover:text-blue-400">03-5496949</a></div>
-                            <div><a href="https://wa.me/972502804723" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-400">050-2804723</a></div>
-                            <div><a href="mailto:office@stroke-il.com" className="underline hover:text-purple-400">office@stroke-il.com</a></div>
+                            <div><a href="tel:035496949" className="underline hover:text-blue-400" aria-label="Phone 03-5496949">03-5496949</a></div>
+                            <div><a href="https://wa.me/972502804723" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-400" aria-label="WhatsApp 050-2804723">050-2804723</a></div>
+                            <div><a href="mailto:office@stroke-il.com" className="underline hover:text-purple-400" aria-label="Email office@stroke-il.com">office@stroke-il.com</a></div>
                             <div className="whitespace-pre-line">{t.footer.address}</div>
                         </div>
                     </div>
@@ -137,6 +137,20 @@ const Footer = () => {
                 
                 <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
                     <p>{t.footer.copyright}</p>
+                    <details className="mt-6 max-w-4xl mx-auto text-left">
+                      <summary className="cursor-pointer underline">הצהרת נגישות / Accessibility Statement</summary>
+                      <div className="mt-3 space-y-3 text-gray-300">
+                        <p>
+                          אתר זה מותאם להנחיות WCAG 2.1 ברמה AA ולתקנות הנגישות של מדינת ישראל. בוצעו התאמות הכוללות ניווט מקלדת מלא, ניגודיות מתאימה, טקסט חלופי לתמונות, היררכיית כותרות תקינה, אזורי תוכן סמנטיים וקישורי דילוג לתוכן.
+                        </p>
+                        <p>
+                          אם נתקלתם בקושי נגישות או שיש לכם הצעות לשיפור, נשמח לשמוע. ניתן ליצור קשר בטלפון 03-5496949, בוואטסאפ 050-2804723 או במייל office@stroke-il.com. נעשה מאמץ לתת מענה מהיר ונגיש לכל פנייה.
+                        </p>
+                        <p>
+                          תאריך עדכון אחרון: {new Date().toLocaleDateString()}
+                        </p>
+                      </div>
+                    </details>
                 </div>
             </div>
         </footer>
@@ -161,6 +175,13 @@ const AppLayout = ({ children, currentPageName }) => {
 export default function Layout({ children, currentPageName }) {
   return (
     <LanguageProvider>
+      {/* Skip link for accessibility */}
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] focus:bg-blue-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-md"
+      >
+        דלג לתוכן הראשי / Skip to main content
+      </a>
       <AppLayout currentPageName={currentPageName}>{children}</AppLayout>
     </LanguageProvider>
   );

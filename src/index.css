@@ -155,6 +155,18 @@ button:focus-visible {
   body {
     @apply bg-background text-foreground;
   }
+  /* Utility for screen-reader only text (revealed on focus via skip link styles in Layout) */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
 }
 
 /* Smooth scroll for in-page anchor navigation */
