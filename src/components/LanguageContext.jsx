@@ -259,7 +259,7 @@ const translations = {
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguage] = useState('he');
 
   const toggleLanguage = () => {
     setLanguage(prev => (prev === 'en' ? 'he' : 'en'));
