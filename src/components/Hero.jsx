@@ -101,10 +101,12 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-                <Calendar className={`w-5 h-5 ${language === 'he' ? 'ml-2' : 'mr-2'}`} />
-                {t.hero.button1}
-              </Button>
+              <a href="#contact">
+                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                  <Calendar className={`w-5 h-5 ${language === 'he' ? 'ml-2' : 'mr-2'}`} />
+                  {t.hero.button1}
+                </Button>
+              </a>
               <a href="tel:035496949">
                 <Button size="lg" variant="outline" className="border-2 border-gray-300 hover:border-blue-600 bg-white/80 backdrop-blur-sm px-8 py-4 text-lg rounded-xl transition-all duration-300">
                   <Phone className={`w-5 h-5 ${language === 'he' ? 'ml-2' : 'mr-2'}`} />
