@@ -86,21 +86,19 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
-        <div className="flex items-center justify-center">
+        <div className={`flex flex-col items-center gap-12 lg:gap-16 ${language === 'he' ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
           {/* Content */}
-          <div className="text-center space-y-8 max-w-4xl">
+          <div className={`space-y-8 max-w-3xl ${language === 'he' ? 'text-right' : 'text-left'}`}>
             <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
+              <h1 className={`text-5xl lg:text-7xl font-bold text-gray-900 leading-tight ${language === 'he' ? '' : ''}`}>
                 {t.hero.title1}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">{t.hero.title2}</span>
               </h1>
-              
-              <p className="text-xl lg:text-2xl text-gray-700 leading-relaxed max-w-2xl font-medium mx-auto">
+              <p className={`text-xl lg:text-2xl text-gray-700 leading-relaxed font-medium ${language === 'he' ? '' : ''}`}>
                 {t.hero.description}
               </p>
             </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className={`flex flex-col sm:flex-row gap-4 ${language === 'he' ? 'justify-end' : 'justify-start'}`}>
               <a href="#contact">
                 <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
                   <Calendar className={`w-5 h-5 ${language === 'he' ? 'ml-2' : 'mr-2'}`} />
@@ -114,29 +112,28 @@ export default function Hero() {
                 </Button>
               </a>
             </div>
-
-            <div className="flex items-center justify-center gap-6 text-gray-700">
+            <div className={`flex items-center gap-6 text-gray-700 ${language === 'he' ? 'justify-end' : 'justify-start'}`}>
               <div className="flex items-center gap-2">
                 <MapPin className="w-5 h-5" />
                 <span>{t.hero.location}</span>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Facebook Reel Embed */}
-        <div className="mt-16 flex justify-center">
-          <iframe
-            src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F997492598398317%2F&show_text=true&width=267&t=0"
-            width="267"
-            height="591"
-            style={{ border: 'none', overflow: 'hidden' }}
-            scrolling="no"
-            frameBorder="0"
-            allowFullScreen={true}
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            title={language === 'he' ? 'סרטון פייסבוק' : 'Facebook video'}
-          />
+          {/* Facebook Reel Embed */}
+          <div className="flex justify-center lg:justify-end w-full lg:w-auto">
+            <iframe
+              src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F997492598398317%2F&show_text=true&width=267&t=0"
+              width="267"
+              height="591"
+              style={{ border: 'none', overflow: 'hidden' }}
+              scrolling="no"
+              frameBorder="0"
+              allowFullScreen={true}
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              title={language === 'he' ? 'סרטון פייסבוק' : 'Facebook video'}
+            />
+          </div>
         </div>
       </div>
     </section>
