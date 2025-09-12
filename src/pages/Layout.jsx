@@ -24,7 +24,7 @@ const Header = () => {
           <Link to={createPageUrl('Home')} className="flex items-center gap-3">
             <div className="w-16 h-16 rounded-lg overflow-hidden bg-white shadow-sm">
               <img 
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/c96904051_ChatGPTImageAug31202511_43_30PM.png" 
+                src="/assets/logo.png" 
                 alt="Dr. Eyal Maoz Halevy Logo"
                 className="w-full h-full object-contain"
               />
@@ -84,9 +84,9 @@ const Footer = () => {
                     <div>
                         <h4 className="font-bold mb-4">{t.footer.contact}</h4>
                         <div className="space-y-2 text-gray-400">
-                            <a href="tel:035496949" className="underline hover:text-blue-400">03-5496949</a>
-                            <a href="https://wa.me/972502804723" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-400">050-2804723</a>
-                            <div>office@stroke-il.com</div>
+                            <div><a href="tel:035496949" className="underline hover:text-blue-400">03-5496949</a></div>
+                            <div><a href="https://wa.me/972502804723" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-400">050-2804723</a></div>
+                            <div><a href="mailto:office@stroke-il.com" className="underline hover:text-purple-400">office@stroke-il.com</a></div>
                             <div className="whitespace-pre-line">{t.footer.address}</div>
                         </div>
                     </div>
