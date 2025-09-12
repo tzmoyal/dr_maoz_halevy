@@ -124,17 +124,19 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Facebook Reel Link */}
-        <div className="mt-16 text-center">
-          <a 
-            href="https://www.facebook.com/reel/997492598398317/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition-all duration-300 hover:shadow-lg"
-          >
-            <ExternalLink className="w-5 h-5" />
-            {language === 'he' ? 'צפו בסרטון על ד"ר מעוז הלוי' : 'Watch Dr. Maoz Halevy Video'}
-          </a>
+        {/* Facebook Reel Embed */}
+        <div className="mt-16 flex justify-center">
+          <iframe
+            src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F997492598398317%2F&show_text=true&width=267&t=0"
+            width="267"
+            height="591"
+            style={{ border: 'none', overflow: 'hidden' }}
+            scrolling="no"
+            frameBorder="0"
+            allowFullScreen={true}
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            title={language === 'he' ? 'סרטון פייסבוק' : 'Facebook video'}
+          />
         </div>
       </div>
     </section>
