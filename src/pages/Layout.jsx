@@ -88,7 +88,7 @@ const Header = () => {
           </div>
           <button
             onClick={toggleLanguage}
-            className="border-2 border-blue-600 text-blue-600 px-4 py-1.5 rounded-full font-semibold hover:bg-blue-50 transition-colors"
+            className="hidden md:inline-flex border-2 border-blue-600 text-blue-600 px-4 py-1.5 rounded-full font-semibold hover:bg-blue-50 transition-colors"
           >
             {t.header.language}
           </button>
