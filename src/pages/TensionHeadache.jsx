@@ -16,11 +16,10 @@ export default function TensionHeadache() {
       <div className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <a
-            href={createPageUrl('Home')}
+            href="/#areas-of-care"
             onClick={(e) => {
               e.preventDefault();
-              const y = window.scrollY;
-              navigate('/', { state: { restoreScrollY: y } });
+              navigate('/#areas-of-care');
             }}
             className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 transition-colors"
           >

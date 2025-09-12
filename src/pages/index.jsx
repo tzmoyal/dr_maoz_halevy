@@ -73,16 +73,25 @@ function PagesContent() {
     React.useEffect(() => {
         const htmlEl = document.documentElement;
         const previousScrollBehavior = htmlEl.style.scrollBehavior;
-        // Force instant jump to avoid smooth animation inherited from global CSS
         htmlEl.style.scrollBehavior = 'auto';
-        if (location.state?.restoreScrollY !== undefined) {
+
+        const hash = location.hash;
+        if (hash) {
+            const id = hash.replace('#', '');
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'auto', block: 'start' });
+            } else {
+                window.scrollTo({ top: 0, behavior: 'auto' });
+            }
+        } else if (location.state?.restoreScrollY !== undefined) {
             window.scrollTo({ top: location.state.restoreScrollY, behavior: 'auto' });
         } else {
             window.scrollTo({ top: 0, behavior: 'auto' });
         }
-        // Restore previous behavior immediately
+
         htmlEl.style.scrollBehavior = previousScrollBehavior;
-    }, [location.key]);
+    }, [location.key, location.hash]);
 
     return (
         <Layout currentPageName={currentPage}>
