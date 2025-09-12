@@ -3,6 +3,8 @@
 import React from 'react';
 import { useLanguage, LanguageProvider } from '../components/LanguageContext';
 import { Link, useLocation } from 'react-router-dom';
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
+import { Menu } from 'lucide-react';
 import { createPageUrl } from '@/utils';
 
 const Header = () => {
@@ -45,6 +47,36 @@ const Header = () => {
             {getLink('#testimonials', t.header.nav.testimonials)}
             {getLink('#contact', t.header.nav.contact)}
           </nav>
+          <div className="md:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <button aria-label="Open menu" className="p-2 rounded-md border border-gray-200 text-gray-700 hover:bg-gray-50">
+                  <Menu className="w-6 h-6" />
+                </button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-80">
+                <div className="flex flex-col gap-6 mt-8">
+                  <SheetClose asChild>
+                    {getLink('#areas-of-care', t.header.nav.services)}
+                  </SheetClose>
+                  <SheetClose asChild>
+                    <Link to={createPageUrl('Treatments')} className="text-gray-700 hover:text-blue-600 transition-colors">
+                      {t.header.nav.treatments}
+                    </Link>
+                  </SheetClose>
+                  <SheetClose asChild>
+                    {getLink('#about', t.header.nav.about)}
+                  </SheetClose>
+                  <SheetClose asChild>
+                    {getLink('#testimonials', t.header.nav.testimonials)}
+                  </SheetClose>
+                  <SheetClose asChild>
+                    {getLink('#contact', t.header.nav.contact)}
+                  </SheetClose>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
           <button
             onClick={toggleLanguage}
             className="border-2 border-blue-600 text-blue-600 px-4 py-1.5 rounded-full font-semibold hover:bg-blue-50 transition-colors"
