@@ -2,22 +2,31 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, Brain, Target, Clock, Calendar, CheckCircle, ShieldCheck, Pill, MessageCircle, Zap } from "lucide-react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { useLanguage } from '../components/LanguageContext';
 
 export default function Treatments() {
   const { language } = useLanguage();
+  const navigate = useNavigate();
   
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-indigo-50">
       {/* Header */}
       <div className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4">
-          <Link to={createPageUrl('Home')} className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors">
+          <a
+            href={createPageUrl('Home')}
+            onClick={(e) => {
+              e.preventDefault();
+              const y = window.scrollY;
+              navigate('/', { state: { restoreScrollY: y } });
+            }}
+            className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors"
+          >
             <ArrowLeft className="w-5 h-5" />
             {language === 'he' ? 'חזרה לעמוד הראשי' : 'Back to Home'}
-          </Link>
+          </a>
         </div>
       </div>
 
