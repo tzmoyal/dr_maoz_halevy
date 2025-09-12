@@ -156,3 +156,6 @@ button:focus-visible {
     @apply bg-background text-foreground;
   }
 }
+
+/* Smooth scroll for in-page anchor navigation */
+html { scroll-behavior: smooth; }
