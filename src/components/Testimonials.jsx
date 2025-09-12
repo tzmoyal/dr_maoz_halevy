@@ -22,10 +22,19 @@ export default function Testimonials() {
                 frameBorder="0"
                 height="270px"
                 width="100%"
+                loading="lazy"
                 allowFullScreen
                 src="https://www.medreviews.co.il/provider/dr-maoz-halevy-eyal/reviews-widget?show-header=true&slide-switch-interval=4500&bg=ffffff&controls-color="
                 title="Patient Testimonials"
+                className="rounded-xl shadow-sm"
             ></iframe>
+            <div className="mt-4 text-center text-sm text-gray-500">
+                {t.language === 'he' ? (
+                  <a className="underline hover:text-blue-600" href="https://www.medreviews.co.il/provider/dr-maoz-halevy-eyal" target="_blank" rel="noopener noreferrer">אם הווידג'ט לא נטען, לחצו כאן לצפייה בהמלצות</a>
+                ) : (
+                  <a className="underline hover:text-blue-600" href="https://www.medreviews.co.il/provider/dr-maoz-halevy-eyal" target="_blank" rel="noopener noreferrer">If the widget doesn't load, click here to view reviews</a>
+                )}
+            </div>
         </div>
       </div>
     </section>
