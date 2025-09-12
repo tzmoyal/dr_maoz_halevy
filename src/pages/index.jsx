@@ -71,12 +71,17 @@ function PagesContent() {
     const currentPage = _getCurrentPage(location.pathname);
 
     React.useEffect(() => {
+        const htmlEl = document.documentElement;
+        const previousScrollBehavior = htmlEl.style.scrollBehavior;
+        // Force instant jump to avoid smooth animation inherited from global CSS
+        htmlEl.style.scrollBehavior = 'auto';
         if (location.state?.restoreScrollY !== undefined) {
-            window.scrollTo({ top: location.state.restoreScrollY });
+            window.scrollTo({ top: location.state.restoreScrollY, behavior: 'auto' });
         } else {
-            // Always start new pages at the top
-            window.scrollTo({ top: 0 });
+            window.scrollTo({ top: 0, behavior: 'auto' });
         }
+        // Restore previous behavior immediately
+        htmlEl.style.scrollBehavior = previousScrollBehavior;
     }, [location.key]);
 
     return (
