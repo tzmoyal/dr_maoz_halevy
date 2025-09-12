@@ -73,10 +73,8 @@ function PagesContent() {
     React.useEffect(() => {
         if (location.state?.restoreScrollY !== undefined) {
             window.scrollTo({ top: location.state.restoreScrollY });
-        } else if (navType === 'POP') {
-            // Let browser restore on back/forward
         } else {
-            // Default scroll to top on new navigations
+            // Always start new pages at the top
             window.scrollTo({ top: 0 });
         }
     }, [location.key]);

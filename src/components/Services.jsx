@@ -52,10 +52,10 @@ export default function Services() {
             const pageLink = clickableServices[index];
             
             const cardContent = (
-              <Card className="group hover:shadow-2xl transition-all duration-500 border-0 bg-gradient-to-br from-gray-50 to-white h-full">
+              <Card className="border-0 bg-gradient-to-br from-gray-50 to-white h-full">
                 <CardContent className="p-8">
                   <div className="text-center space-y-6">
-                    <div className={`w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br ${serviceColors[index]} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br ${serviceColors[index]} flex items-center justify-center`}>
                       <Icon className="w-8 h-8 text-white" />
                     </div>
                     
@@ -68,7 +68,7 @@ export default function Services() {
                       </p>
                       {pageLink && (
                         <div className="pt-2">
-                          <span className="text-blue-600 font-medium group-hover:text-blue-700 transition-colors">
+                          <span className="text-blue-600 font-medium">
                             Learn More →
                           </span>
                         </div>
