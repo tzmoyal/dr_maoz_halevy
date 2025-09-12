@@ -14,10 +14,13 @@ export default function OtherHeadacheDisorders() {
       {/* Header */}
       <div className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4">
-          <Link to={createPageUrl('Home')} className="inline-flex items-center gap-2 text-teal-600 hover:text-teal-700 transition-colors">
-            <ArrowLeft className="w-5 h-5" />
-            {language === 'he' ? 'חזרה לעמוד הראשי' : 'Back to Home'}
-          </Link>
+          <Link
+              to="/#areas-of-care"
+              className="inline-flex items-center gap-2 text-teal-600 hover:text-teal-700 transition-colors"
+            >
+              <ArrowLeft className="w-5 h-5" />
+              {language === 'he' ? 'חזרה לעמוד הראשי' : 'Back to Home'}
+            </Link>
         </div>
       </div>
 
