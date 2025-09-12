@@ -86,7 +86,7 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
-        <div className={`flex flex-col items-center gap-12 lg:gap-16 ${language === 'he' ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
+        <div className={`flex flex-col items-center gap-12 lg:gap-16 ${language === 'he' ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
           {/* Content */}
           <div className={`space-y-8 max-w-3xl ${language === 'he' ? 'text-right' : 'text-left'}`}>
             <div className="space-y-4">
