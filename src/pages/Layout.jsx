@@ -85,7 +85,7 @@ const Footer = () => {
                         <h4 className="font-bold mb-4">{t.footer.contact}</h4>
                         <div className="space-y-2 text-gray-400">
                             <a href="tel:035496949" className="underline hover:text-blue-400">03-5496949</a>
-                            <div>050-2804723</div>
+                            <a href="https://wa.me/972502804723" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-400">050-2804723</a>
                             <div>office@stroke-il.com</div>
                             <div className="whitespace-pre-line">{t.footer.address}</div>
                         </div>
