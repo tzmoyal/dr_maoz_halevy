@@ -87,8 +87,8 @@ Sent from Dr. Eyal Maoz Halevy website contact form
                 if (isWhatsApp) linkHref = 'https://wa.me/972502804723';
                 if (isEmail) linkHref = 'mailto:office@stroke-il.com';
 
-                return (
-                  <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 bg-white">
+                const CardInner = (
+                  <Card className="group border-0 bg-white cursor-pointer transform transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:ring-2 hover:ring-blue-200">
                     <CardContent className="p-6">
                       <div className="flex items-center gap-4">
                         <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${contactColors[index]} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
@@ -96,24 +96,34 @@ Sent from Dr. Eyal Maoz Halevy website contact form
                         </div>
                         <div className="flex-1">
                           <h3 className="text-xl font-bold text-gray-900 mb-1">{info.title}</h3>
-                          {linkHref ? (
-                            <a
-                              href={linkHref}
-                              target={isWhatsApp ? '_blank' : undefined}
-                              rel={isWhatsApp ? 'noopener noreferrer' : undefined}
-                              className={`font-medium break-all underline ${isWhatsApp ? 'text-green-600 hover:text-green-700' : 'text-blue-600 hover:text-blue-700'}`}
-                            >
-                              {info.details}
-                            </a>
-                          ) : (
-                            <p className="text-gray-700 font-medium break-all">{info.details}</p>
-                          )}
+                          <p className={`font-medium break-all ${linkHref ? (isWhatsApp ? 'text-green-600' : 'text-blue-600') : 'text-gray-700'}`}>{info.details}</p>
                           <p className="text-sm text-gray-500">{info.subtext}</p>
                         </div>
                       </div>
                     </CardContent>
                   </Card>
-                )
+                );
+
+                if (linkHref) {
+                  return (
+                    <a
+                      key={index}
+                      href={linkHref}
+                      target={isWhatsApp ? '_blank' : undefined}
+                      rel={isWhatsApp ? 'noopener noreferrer' : undefined}
+                      aria-label={`${info.title}: ${info.details}`}
+                      className="block"
+                    >
+                      {CardInner}
+                    </a>
+                  );
+                }
+
+                return (
+                  <div key={index}>
+                    {CardInner}
+                  </div>
+                );
               })}
             </div>
             <Card className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 border-0">
