@@ -73,6 +73,15 @@ const Header = () => {
                   <SheetClose asChild>
                     {getLink('#contact', t.header.nav.contact)}
                   </SheetClose>
+                  <div className="border-t border-gray-200 pt-4" />
+                  <SheetClose asChild>
+                    <button
+                      onClick={toggleLanguage}
+                      className="w-full border-2 border-blue-600 text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-left"
+                    >
+                      {t.header.language}
+                    </button>
+                  </SheetClose>
                 </div>
               </SheetContent>
             </Sheet>
