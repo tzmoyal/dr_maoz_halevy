@@ -22,6 +22,7 @@ import ClusterHeadache from "./ClusterHeadache";
 import MigraneInPregnancy from "./MigraneInPregnancy";
 
 import VestibularMigraine from "./VestibularMigraine";
+import Accessibility from "./Accessibility.jsx";
 
 import { BrowserRouter as Router, Route, Routes, useLocation, useNavigationType } from 'react-router-dom';
 
@@ -121,6 +122,7 @@ function PagesContent() {
                 <Route path="/MigraneInPregnancy" element={<MigraneInPregnancy />} />
                 
                 <Route path="/VestibularMigraine" element={<VestibularMigraine />} />
+                <Route path="/Accessibility" element={<Accessibility />} />
                 
             </Routes>
         </Layout>

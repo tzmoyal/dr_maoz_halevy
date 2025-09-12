@@ -117,12 +117,17 @@ const Footer = () => {
                         </div>
                     </div>
                     
-                    <div>
+                    <nav aria-label="Footer useful links">
                         <h4 className="font-bold mb-4">{t.footer.links}</h4>
-                        <div className="space-y-2 text-gray-400">
-                            {t.footer.linkItems.map(item => <div key={item}>{item}</div>)}
-                        </div>
-                    </div>
+                        <ul className="space-y-2 text-gray-400">
+                            {t.footer.linkItems.map(item => <li key={item}>{item}</li>)}
+                            <li>
+                                <Link to="/Accessibility" className="underline hover:text-blue-400">
+                                    {t.language === 'he' ? 'הצהרת נגישות' : 'Accessibility Statement'}
+                                </Link>
+                            </li>
+                        </ul>
+                    </nav>
                     
                     <div>
                         <h4 className="font-bold mb-4">{t.footer.contact}</h4>
@@ -137,20 +142,11 @@ const Footer = () => {
                 
                 <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
                     <p>{t.footer.copyright}</p>
-                    <details className="mt-6 max-w-4xl mx-auto text-left">
-                      <summary className="cursor-pointer underline">הצהרת נגישות / Accessibility Statement</summary>
-                      <div className="mt-3 space-y-3 text-gray-300">
-                        <p>
-                          אתר זה מותאם להנחיות WCAG 2.1 ברמה AA ולתקנות הנגישות של מדינת ישראל. בוצעו התאמות הכוללות ניווט מקלדת מלא, ניגודיות מתאימה, טקסט חלופי לתמונות, היררכיית כותרות תקינה, אזורי תוכן סמנטיים וקישורי דילוג לתוכן.
-                        </p>
-                        <p>
-                          אם נתקלתם בקושי נגישות או שיש לכם הצעות לשיפור, נשמח לשמוע. ניתן ליצור קשר בטלפון 03-5496949, בוואטסאפ 050-2804723 או במייל office@stroke-il.com. נעשה מאמץ לתת מענה מהיר ונגיש לכל פנייה.
-                        </p>
-                        <p>
-                          תאריך עדכון אחרון: {new Date().toLocaleDateString()}
-                        </p>
-                      </div>
-                    </details>
+                    <div className="mt-6 text-center">
+                      <Link to="/Accessibility" className="underline hover:text-blue-400">
+                        {t.language === 'he' ? 'הצהרת נגישות' : 'Accessibility Statement'}
+                      </Link>
+                    </div>
                 </div>
             </div>
         </footer>
