@@ -88,7 +88,7 @@ Sent from Dr. Eyal Maoz Halevy website contact form
                 if (isEmail) linkHref = 'mailto:office@stroke-il.com';
 
                 const CardInner = (
-                  <Card className="group border-0 bg-white cursor-pointer transform transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:ring-2 hover:ring-blue-200">
+                  <Card className="border-0 bg-white transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl group-hover:ring-2 group-hover:ring-blue-200">
                     <CardContent className="p-6">
                       <div className="flex items-center gap-4">
                         <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${contactColors[index]} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
@@ -112,7 +112,7 @@ Sent from Dr. Eyal Maoz Halevy website contact form
                       target={isWhatsApp ? '_blank' : undefined}
                       rel={isWhatsApp ? 'noopener noreferrer' : undefined}
                       aria-label={`${info.title}: ${info.details}`}
-                      className="block"
+                      className="block group cursor-pointer"
                     >
                       {CardInner}
                     </a>
@@ -120,7 +120,7 @@ Sent from Dr. Eyal Maoz Halevy website contact form
                 }
 
                 return (
-                  <div key={index}>
+                  <div key={index} className="group">
                     {CardInner}
                   </div>
                 );
