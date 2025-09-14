@@ -1,7 +1,9 @@
-const express = require('express');
-const nodemailer = require('nodemailer');
-const cors = require('cors');
-require('dotenv').config();
+import express from 'express';
+import nodemailer from 'nodemailer';
+import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -98,4 +100,4 @@ app.listen(PORT, () => {
   console.log(`Health check: http://localhost:${PORT}/api/health`);
 });
 
-module.exports = app;
+export default app;
