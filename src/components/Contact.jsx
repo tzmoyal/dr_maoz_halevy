@@ -75,6 +75,78 @@ Sent from Dr. Eyal Maoz Halevy website contact form
           </p>
         </div>
         <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <Card className="p-8 bg-white shadow-2xl border-0">
+            <CardContent className="p-0">
+              <div className="mb-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">{t.contact.form.title}</h3>
+                <p className="text-gray-600">{t.contact.form.description}</p>
+              </div>
+
+              {submitStatus === 'success' && (
+                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                  <p className="text-green-700 font-medium">
+                    {language === 'he' 
+                      ? 'הבקשה נשלחה בהצלחה! ניצור עמכם קשר בקרוב.' 
+                      : 'Request sent successfully! We will contact you soon.'}
+                  </p>
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <p className="text-red-700 font-medium">
+                    {language === 'he'
+                      ? 'שגיאה בשליחת הבקשה. אנא נסו שוב או צרו קשר טלפונית.'
+                      : 'Error sending request. Please try again or contact us by phone.'}
+                  </p>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-gray-900">{t.contact.form.name}</label>
+                    <Input value={formData.name} onChange={(e) => handleChange('name', e.target.value)} placeholder={t.contact.form.name_ph} className="border-gray-200 focus:border-blue-600 rounded-xl" required />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-gray-900">{t.contact.form.phone}</label>
+                    <Input 
+                      value={formData.phone} 
+                      onChange={(e) => handleChange('phone', e.target.value)} 
+                      placeholder={t.contact.form.phone_ph} 
+                      className="border-gray-200 focus:border-blue-600 rounded-xl" 
+                      dir="ltr"
+                      required 
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-900">{t.contact.form.email}</label>
+                  <Input type="email" value={formData.email} onChange={(e) => handleChange('email', e.target.value)} placeholder={t.contact.form.email_ph} className="border-gray-200 focus:border-blue-600 rounded-xl" required />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-900">{t.contact.form.headache}</label>
+                  <Input value={formData.headacheType} onChange={(e) => handleChange('headacheType', e.target.value)} placeholder={t.contact.form.headache_ph} className="border-gray-200 focus:border-blue-600 rounded-xl" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-900">{t.contact.form.symptoms}</label>
+                  <Textarea value={formData.message} onChange={(e) => handleChange('message', e.target.value)} placeholder={t.contact.form.symptoms_ph} className="border-gray-200 focus:border-blue-600 rounded-xl min-h-24" />
+                </div>
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 text-lg rounded-xl"
+                  disabled={isSubmitting}
+                >
+                  <Calendar className={`w-5 h-5 ${language === 'he' ? 'ml-2' : 'mr-2'}`} />
+                  {isSubmitting 
+                    ? (language === 'he' ? 'שולח...' : 'Sending...') 
+                    : t.contact.form.button}
+                </Button>
+                <p className="text-xs text-gray-500 text-center">{t.contact.form.privacy}</p>
+              </form>
+            </CardContent>
+          </Card>
           <div className="space-y-8">
             <div className="grid gap-6">
               {t.contact.info.map((info, index) => {
@@ -140,71 +212,6 @@ Sent from Dr. Eyal Maoz Halevy website contact form
               </CardContent>
             </Card>
           </div>
-          <Card className="p-8 bg-white shadow-2xl border-0">
-            <CardContent className="p-0">
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{t.contact.form.title}</h3>
-                <p className="text-gray-600">{t.contact.form.description}</p>
-              </div>
-
-              {submitStatus === 'success' && (
-                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-                  <p className="text-green-700 font-medium">
-                    {language === 'he' 
-                      ? 'הבקשה נשלחה בהצלחה! ניצור עמכם קשר בקרוב.' 
-                      : 'Request sent successfully! We will contact you soon.'}
-                  </p>
-                </div>
-              )}
-
-              {submitStatus === 'error' && (
-                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-                  <p className="text-red-700 font-medium">
-                    {language === 'he'
-                      ? 'שגיאה בשליחת הבקשה. אנא נסו שוב או צרו קשר טלפונית.'
-                      : 'Error sending request. Please try again or contact us by phone.'}
-                  </p>
-                </div>
-              )}
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-900">{t.contact.form.name}</label>
-                    <Input value={formData.name} onChange={(e) => handleChange('name', e.target.value)} placeholder={t.contact.form.name_ph} className="border-gray-200 focus:border-blue-600 rounded-xl" required />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-900">{t.contact.form.phone}</label>
-                    <Input value={formData.phone} onChange={(e) => handleChange('phone', e.target.value)} placeholder={t.contact.form.phone_ph} className="border-gray-200 focus:border-blue-600 rounded-xl" required />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-900">{t.contact.form.email}</label>
-                  <Input type="email" value={formData.email} onChange={(e) => handleChange('email', e.target.value)} placeholder={t.contact.form.email_ph} className="border-gray-200 focus:border-blue-600 rounded-xl" required />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-900">{t.contact.form.headache}</label>
-                  <Input value={formData.headacheType} onChange={(e) => handleChange('headacheType', e.target.value)} placeholder={t.contact.form.headache_ph} className="border-gray-200 focus:border-blue-600 rounded-xl" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-900">{t.contact.form.symptoms}</label>
-                  <Textarea value={formData.message} onChange={(e) => handleChange('message', e.target.value)} placeholder={t.contact.form.symptoms_ph} className="border-gray-200 focus:border-blue-600 rounded-xl min-h-24" />
-                </div>
-                <Button 
-                  type="submit" 
-                  size="lg" 
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 text-lg rounded-xl"
-                  disabled={isSubmitting}
-                >
-                  <Calendar className={`w-5 h-5 ${language === 'he' ? 'ml-2' : 'mr-2'}`} />
-                  {isSubmitting 
-                    ? (language === 'he' ? 'שולח...' : 'Sending...') 
-                    : t.contact.form.button}
-                </Button>
-                <p className="text-xs text-gray-500 text-center">{t.contact.form.privacy}</p>
-              </form>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </section>
