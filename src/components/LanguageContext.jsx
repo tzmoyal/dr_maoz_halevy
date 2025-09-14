@@ -25,7 +25,8 @@ const translations = {
       title3: '',
       description: '"Headaches and facial pain are not just symptoms – they affect quality of life, the ability to work, care for family, and enjoy daily routines." Dr. Eyal Maoz Halevy sees patients and their pain, and dedicates his professional path to restoring their function, control, and health.',
       button1: 'Schedule Consultation',
-      button2: 'Call Now',
+      button2: 'Send WhatsApp Message Now',
+      button3: 'Call Now',
       location: 'Weizmann Tower, Tel Aviv',
       card: {
         name: 'Dr. Eyal Maoz Halevy',
@@ -151,7 +152,8 @@ const translations = {
       title3: '',
       description: '"כאבי ראש וכאבי פנים אינם רק סימפטום – הם פוגעים באיכות החיים, ביכולת לעבוד, לטפל במשפחה וליהנות משגרת היום" ד"ר אייל מעוז הלוי רואה את המטופלים ואת כאבם, ומקדיש את דרכו המקצועית להחזיר להם את התפקוד, השליטה והבריאות.',
       button1: 'קבעו פגישת ייעוץ',
-      button2: 'התקשרו עכשיו',
+      button2: 'שלחו הודעת וואטסאפ עכשיו',
+      button3: 'התקשרו עכשיו',
       location: 'מגדל ויצמן, תל אביב',
       card: {
         name: 'ד"ר אייל מעוז הלוי',
