@@ -23,6 +23,8 @@ import MigraneInPregnancy from "./MigraneInPregnancy";
 
 import VestibularMigraine from "./VestibularMigraine";
 import Accessibility from "./Accessibility.jsx";
+import Services from "./Services.jsx";
+import About from "./About.jsx";
 
 import { BrowserRouter as Router, Route, Routes, useLocation, useNavigationType } from 'react-router-dom';
 
@@ -49,7 +51,8 @@ const PAGES = {
     MigraneInPregnancy: MigraneInPregnancy,
     
     VestibularMigraine: VestibularMigraine,
-    
+    Services: Services,
+    About: About,
 }
 
 function _getCurrentPage(url) {
@@ -123,6 +126,8 @@ function PagesContent() {
                 
                 <Route path="/VestibularMigraine" element={<VestibularMigraine />} />
                 <Route path="/Accessibility" element={<Accessibility />} />
+                <Route path="/Services" element={<Services />} />
+                <Route path="/About" element={<About />} />
                 
             </Routes>
         </Layout>

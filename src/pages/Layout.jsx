@@ -39,11 +39,15 @@ const Header = () => {
             </div>
           </Link>
           <nav className="hidden md:flex items-center gap-8">
-            {getLink('#areas-of-care', t.header.nav.services)}
+            <Link to="/Services" className="text-gray-600 hover:text-blue-600 transition-colors">
+              {t.header.nav.services}
+            </Link>
             <Link to={createPageUrl('Treatments')} className="text-gray-600 hover:text-blue-600 transition-colors">
               {t.header.nav.treatments}
             </Link>
-            {getLink('#about', t.header.nav.about)}
+            <Link to="/About" className="text-gray-600 hover:text-blue-600 transition-colors">
+              {t.header.nav.about}
+            </Link>
             {getLink('#testimonials', t.header.nav.testimonials)}
             {getLink('#contact', t.header.nav.contact)}
           </nav>
@@ -57,7 +61,9 @@ const Header = () => {
               <SheetContent side="right" className="w-80">
                 <div className="flex flex-col gap-6 mt-8">
                   <SheetClose asChild>
-                    {getLink('#areas-of-care', t.header.nav.services)}
+                    <Link to="/Services" className="text-gray-700 hover:text-blue-600 transition-colors">
+                      {t.header.nav.services}
+                    </Link>
                   </SheetClose>
                   <SheetClose asChild>
                     <Link to={createPageUrl('Treatments')} className="text-gray-700 hover:text-blue-600 transition-colors">
@@ -65,7 +71,9 @@ const Header = () => {
                     </Link>
                   </SheetClose>
                   <SheetClose asChild>
-                    {getLink('#about', t.header.nav.about)}
+                    <Link to="/About" className="text-gray-700 hover:text-blue-600 transition-colors">
+                      {t.header.nav.about}
+                    </Link>
                   </SheetClose>
                   <SheetClose asChild>
                     {getLink('#testimonials', t.header.nav.testimonials)}
