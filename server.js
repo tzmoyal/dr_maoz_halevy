@@ -14,7 +14,7 @@ app.use(express.json());
 
 // Create transporter for Gmail
 const createTransporter = () => {
-  return nodemailer.createTransporter({
+  return nodemailer.createTransport({
     service: 'gmail',
     auth: {
       user: process.env.GMAIL_USER,
@@ -34,7 +34,7 @@ const createEmailTemplate = (formData) => {
       <p><strong>Headache Type:</strong> ${formData.headacheType || 'Not specified'}</p>
       <p><strong>Message:</strong></p>
       <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin: 10px 0;">
-        ${formData.message.replace(/\n/g, '<br>')}
+        ${(formData.message || '').replace(/\n/g, '<br>')}
       </div>
       <hr style="margin: 20px 0;">
       <p style="font-size: 12px; color: #666;">
@@ -50,7 +50,7 @@ app.post('/api/send-email', async (req, res) => {
     const { name, phone, email, headacheType, message } = req.body;
 
     // Validate required fields
-    if (!name || !phone || !email || !message) {
+    if (!name || !phone || !email) {
       return res.status(400).json({ 
         success: false, 
         message: 'Missing required fields' 
