@@ -15,11 +15,11 @@ export default function OtherHeadacheDisorders() {
       <div className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <Link
-              to="/#areas-of-care"
+              to="/Services"
               className="inline-flex items-center gap-2 text-teal-600 hover:text-teal-700 transition-colors"
             >
               <ArrowLeft className="w-5 h-5" />
-              {language === 'he' ? 'חזרה לעמוד הראשי' : 'Back to Home'}
+              {language === 'he' ? 'חזרה לשירותים' : 'Back to Services'}
             </Link>
         </div>
       </div>

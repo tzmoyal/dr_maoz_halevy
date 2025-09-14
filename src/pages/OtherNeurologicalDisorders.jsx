@@ -16,17 +16,13 @@ export default function OtherNeurologicalDisorders() {
       {/* Header */}
       <div className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4">
-          <a
-              href="/#areas-of-care"
-              onClick={(e) => {
-                e.preventDefault();
-                navigate('/#areas-of-care');
-              }}
+          <Link
+              to="/Services"
               className="inline-flex items-center gap-2 text-orange-600 hover:text-orange-700 transition-colors"
             >
               <ArrowLeft className="w-5 h-5" />
-              {language === 'he' ? 'חזרה לעמוד הראשי' : 'Back to Home'}
-            </a>
+              {language === 'he' ? 'חזרה לשירותים' : 'Back to Services'}
+            </Link>
         </div>
       </div>
 
