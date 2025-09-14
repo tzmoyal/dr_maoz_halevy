@@ -95,7 +95,7 @@ export default function About() {
                     {t.about.title2}
                   </h3>
                   <p className="text-blue-600 font-medium">
-                    {language === 'he' ? 'במהלך כנס רפואי מקצועי' : 'At a professional medical conference'}
+                    <a href="https://americanheadachesociety.org/about/awards/frontiers-in-headache-research-scholarship-award" target="_blank" rel="noopener noreferrer">{language === 'he' ? 'בכנס של איגוד כאבי הראש האמריקאי' : 'At a professional medical conference'}</a>
                   </p>
                 </div>
               </CardContent>

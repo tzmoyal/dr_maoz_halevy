@@ -1,0 +1,45 @@
+# Dependency directories
+node_modules/
+.pnpm/
+.yarn/
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+tmp/
+temp/
+
+# Test artifacts
+coverage/
+.vscode-test/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Editor & system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.*.local
+
+# Generated assets
+*.min.js
+*.min.css
+*.bundle.js
+*.map
+
+# Misc
+.sass-cache/
+*.tsbuildinfo

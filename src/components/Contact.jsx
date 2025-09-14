@@ -29,33 +29,28 @@ export default function Contact() {
     setSubmitStatus(null);
 
     try {
-      const emailBody = `
-New appointment request from website:
+      const response = await fetch('http://localhost:3000/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Type of Headaches: ${formData.headacheType}
+      const result = await response.json();
 
-Symptoms Description:
-${formData.message}
-
----
-Sent from Dr. Eyal Maoz Halevy website contact form
-      `;
-
-      // TODO: Wire up your own email handling here (API endpoint or service)
-      // For now, simulate success to keep UX intact
-      await new Promise((resolve) => setTimeout(resolve, 600));
-
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', phone: '', headacheType: '', message: '' });
+      if (result.success) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', phone: '', headacheType: '', message: '' });
+      } else {
+        throw new Error(result.message || 'Failed to send email');
+      }
     } catch (error) {
       console.error('Error sending email:', error);
       setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
     }
-
-    setIsSubmitting(false);
   };
 
   const handleChange = (field, value) => {
