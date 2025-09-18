@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, MapPin, MessageCircle, Calendar, Shield } from "lucide-react";
 import { useLanguage } from './LanguageContext';
@@ -18,7 +17,7 @@ const contactColors = [
 export default function Contact() {
   const { t, language } = useLanguage();
   const [formData, setFormData] = useState({
-    name: '', email: '', phone: '', headacheType: '', message: ''
+    name: '', email: '', phone: '', headacheType: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
@@ -41,7 +40,7 @@ export default function Contact() {
 
       if (result.success) {
         setSubmitStatus('success');
-        setFormData({ name: '', email: '', phone: '', headacheType: '', message: '' });
+        setFormData({ name: '', email: '', phone: '', headacheType: '' });
       } else {
         throw new Error(result.message || 'Failed to send email');
       }
@@ -122,10 +121,6 @@ export default function Contact() {
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-900">{t.contact.form.headache}</label>
                   <Input value={formData.headacheType} onChange={(e) => handleChange('headacheType', e.target.value)} placeholder={t.contact.form.headache_ph} className="border-gray-200 focus:border-blue-600 rounded-xl" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-900">{t.contact.form.symptoms}</label>
-                  <Textarea value={formData.message} onChange={(e) => handleChange('message', e.target.value)} placeholder={t.contact.form.symptoms_ph} className="border-gray-200 focus:border-blue-600 rounded-xl min-h-24" />
                 </div>
                 <Button 
                   type="submit" 
