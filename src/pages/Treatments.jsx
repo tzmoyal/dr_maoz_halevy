@@ -59,11 +59,12 @@ export default function Treatments() {
               : 'For patients with treatment-resistant headaches and complex pain, we offer advanced, minimally invasive procedures to provide significant relief and improve quality of life.'
             }
           </p>
-
-          <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 text-lg rounded-xl">
-            <Calendar className="w-5 h-5 mr-2" />
-            {language === 'he' ? 'התייעצות לגבי טיפולים' : 'Consult About Treatments'}
-          </Button>
+          <a href="/#contact">
+            <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 text-lg rounded-xl">
+              <Calendar className="w-5 h-5 mr-2" />
+              {language === 'he' ? 'התייעצות לגבי טיפולים' : 'Consult About Treatments'}
+            </Button>
+          </a>
         </div>
 
         {/* Treatments Details */}
@@ -281,7 +282,7 @@ export default function Treatments() {
               </Button>
             </a>
             <a href="tel:035496949">
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-indigo-600 px-8 py-4 text-lg rounded-xl">
+              <Button size="lg" className="bg-white text-indigo-600 hover:bg-indigo-50 px-8 py-4 text-lg rounded-xl">
                 {language === 'he' ? 'התקשרו עכשיו: 03-5496949' : 'Call Now: 03-5496949'}
               </Button>
             </a>

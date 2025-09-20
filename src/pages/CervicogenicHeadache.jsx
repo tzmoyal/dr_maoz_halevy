@@ -20,7 +20,7 @@ export default function CervicogenicHeadache() {
             className="inline-flex items-center gap-2 text-sky-600 hover:text-sky-700 transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
-            {language === 'he' ? 'חזרה לשירותים' : 'Back to Services'}
+            {language === 'he' ? 'חזרה לתחומי טיפול' : 'Back to Services'}
           </Link>
         </div>
       </div>
@@ -165,7 +165,7 @@ export default function CervicogenicHeadache() {
               </Button>
             </a>
             <a href="tel:035496949">
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-sky-600 px-8 py-4 text-lg rounded-xl">
+              <Button size="lg" variant="outline" className="border-2 border-white text-sky-600 hover:bg-sky-50 px-8 py-4 text-lg rounded-xl">
                 {language === 'he' ? 'התקשרו: 03-5496949' : 'Call Now: 03-5496949'}
               </Button>
             </a>

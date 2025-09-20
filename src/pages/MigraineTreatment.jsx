@@ -21,7 +21,7 @@ export default function MigraineTreatment() {
             className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
-            {language === 'he' ? 'חזרה לשירותים' : 'Back to Services'}
+            {language === 'he' ? 'חזרה לתחומי טיפול' : 'Back to Services'}
           </Link>
         </div>
       </div>
@@ -55,11 +55,12 @@ export default function MigraineTreatment() {
               ? 'תוכניות טיפול מתקדמות ומותאמות אישית המשלבות תרופות מונעות, שינויים באורח החיים וטיפולים חדשניים כדי לעזור לכם להשיב את השליטה על המיגרנות שלכם.'
               : 'Advanced, personalized treatment plans combining preventive medications, lifestyle modifications, and cutting-edge therapies to help you regain control over your migraines.'}
           </p>
-
-          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg rounded-xl">
-            <Calendar className="w-5 h-5 mr-2" />
-            {language === 'he' ? 'קבעו פגישת ייעוץ' : 'Schedule Consultation'}
-          </Button>
+          <a href="/#contact">
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg rounded-xl">
+              <Calendar className="w-5 h-5 mr-2" />
+              {language === 'he' ? 'קבעו פגישת ייעוץ' : 'Schedule Consultation'}
+            </Button>
+          </a>
         </div>
 
         {/* Content Section */}
@@ -223,7 +224,7 @@ export default function MigraineTreatment() {
               </Button>
             </a>
             <a href="tel:035496949">
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg rounded-xl">
+              <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg rounded-xl">
                 {language === 'he' ? 'התקשרו: 03-5496949' : 'Call Now: 03-5496949'}
               </Button>
             </a>

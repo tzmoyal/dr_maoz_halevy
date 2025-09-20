@@ -152,7 +152,7 @@ export default function About() {
               </Button>
             </a>
             <a href="tel:035496949">
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg rounded-xl">
+              <Button size="lg" variant="outline" className="border-2 border-white text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg rounded-xl">
                 {language === 'he' ? 'התקשרו עכשיו: 03-5496949' : 'Call Now: 03-5496949'}
               </Button>
             </a>

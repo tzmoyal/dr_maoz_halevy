@@ -58,10 +58,12 @@ export default function Services() {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
             {t.services.description}
           </p>
-          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg rounded-xl">
-            <Calendar className="w-5 h-5 mr-2" />
-            {language === 'he' ? 'קבעו פגישת ייעוץ' : 'Schedule Consultation'}
-          </Button>
+          <a href="/#contact"> 
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg rounded-xl">
+              <Calendar className="w-5 h-5 mr-2" />
+              {language === 'he' ? 'קבעו פגישת ייעוץ' : 'Schedule Consultation'}
+            </Button>
+          </a>
         </div>
 
         {/* Services Grid */}
@@ -131,7 +133,7 @@ export default function Services() {
               </Button>
             </a>
             <a href="tel:035496949">
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg rounded-xl">
+              <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg rounded-xl">
                 {language === 'he' ? 'התקשרו עכשיו: 03-5496949' : 'Call Now: 03-5496949'}
               </Button>
             </a>

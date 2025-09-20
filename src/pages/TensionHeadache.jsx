@@ -20,7 +20,7 @@ export default function TensionHeadache() {
             className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
-            {language === 'he' ? 'חזרה לשירותים' : 'Back to Services'}
+            {language === 'he' ? 'חזרה לתחומי טיפול' : 'Back to Services'}
           </Link>
         </div>
       </div>
@@ -53,11 +53,12 @@ export default function TensionHeadache() {
               : 'Break the cycle of chronic tension headaches with targeted medical interventions and personalized treatment strategies designed to provide lasting relief.'
             }
           </p>
-
-          <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 text-lg rounded-xl">
-            <Calendar className="w-5 h-5 mr-2" />
-            {language === 'he' ? 'קבעו פגישת ייעוץ' : 'Schedule Consultation'}
-          </Button>
+          <a href="/#contact">
+            <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 text-lg rounded-xl">
+              <Calendar className="w-5 h-5 mr-2" />
+              {language === 'he' ? 'קבעו פגישת ייעוץ' : 'Schedule Consultation'}
+            </Button>
+          </a>
         </div>
 
         {/* Content Section */}
@@ -169,7 +170,7 @@ export default function TensionHeadache() {
               </Button>
             </a>
             <a href="tel:035496949">
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-purple-600 px-8 py-4 text-lg rounded-xl">
+              <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50 px-8 py-4 text-lg rounded-xl">
                 {language === 'he' ? 'התקשרו: 03-5496949' : 'Call Now: 03-5496949'}
               </Button>
             </a>

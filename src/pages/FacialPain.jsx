@@ -20,7 +20,7 @@ export default function FacialPain() {
             className="inline-flex items-center gap-2 text-rose-600 hover:text-rose-700 transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
-            {language === 'he' ? 'חזרה לשירותים' : 'Back to Services'}
+            {language === 'he' ? 'חזרה לתחומי טיפול' : 'Back to Services'}
           </Link>
         </div>
       </div>
@@ -54,11 +54,12 @@ export default function FacialPain() {
               : 'Specialized diagnosis and treatment for complex facial pain conditions including trigeminal neuralgia, TMJ disorders, and other challenging facial pain syndromes.'
             }
           </p>
-
-          <Button size="lg" className="bg-rose-600 hover:bg-rose-700 text-white px-8 py-4 text-lg rounded-xl">
-            <Calendar className="w-5 h-5 mr-2" />
-            {language === 'he' ? 'קבעו פגישת ייעוץ' : 'Schedule Consultation'}
-          </Button>
+          <a href="/#contact">
+            <Button size="lg" className="bg-rose-600 hover:bg-rose-700 text-white px-8 py-4 text-lg rounded-xl">
+              <Calendar className="w-5 h-5 mr-2" />
+              {language === 'he' ? 'קבעו פגישת ייעוץ' : 'Schedule Consultation'}
+            </Button>
+          </a>
         </div>
 
         {/* Main Conditions */}
@@ -283,7 +284,7 @@ export default function FacialPain() {
               </Button>
             </a>
             <a href="tel:035496949">
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-rose-600 px-8 py-4 text-lg rounded-xl">
+              <Button size="lg" className="bg-white text-rose-600 hover:bg-rose-50 px-8 py-4 text-lg rounded-xl">
                 {language === 'he' ? 'התקשרו עכשיו: 03-5496949' : 'Call Now: 03-5496949'}
               </Button>
             </a>
