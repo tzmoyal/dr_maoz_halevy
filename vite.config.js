@@ -6,7 +6,10 @@ import path from 'path'
 export default defineConfig({
   plugins: [react()],
   server: {
-    allowedHosts: true
+    allowedHosts: true,
+    port: 5173,
+    strictPort: false,
+    host: true
   },
   resolve: {
     alias: {
@@ -21,4 +24,14 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined
+      }
+    }
+  }
 }) 
