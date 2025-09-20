@@ -25,20 +25,30 @@ const createTransporter = () => {
 
 // Email template
 const createEmailTemplate = (formData) => {
+  const headacheType = formData.headacheType || 'לא צוין';
+  
   return `
-    <h2>New Contact Form Submission</h2>
-    <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-      <p><strong>Name:</strong> ${formData.name}</p>
-      <p><strong>Phone:</strong> ${formData.phone}</p>
-      <p><strong>Email:</strong> ${formData.email}</p>
-      <p><strong>Headache Type:</strong> ${formData.headacheType || 'Not specified'}</p>
-      <p><strong>Message:</strong></p>
-      <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin: 10px 0;">
-        ${(formData.message || '').replace(/\n/g, '<br>')}
+    <div style="font-family: Arial, sans-serif; line-height: 1.8; color: #333; direction: rtl; text-align: right;">
+      <h2 style="color: #2563eb; margin-bottom: 20px;">בקשה לקביעת תור - ד"ר אייל מעוז הלוי</h2>
+      
+      <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; border-right: 4px solid #2563eb;">
+        <p style="margin: 0 0 15px 0; font-size: 16px;">
+          שלום רב,<br><br>
+          אבקש לקבוע תור לד"ר אייל מעוז הלוי, מומחה כאבי ראש, בשל <strong>${headacheType}</strong>.<br><br>
+          נא צרו עימי קשר
+        </p>
+        
+        <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #e2e8f0;">
+          <p style="margin: 5px 0;"><strong>בכבוד רב,</strong></p>
+          <p style="margin: 5px 0;"><strong>${formData.name}</strong></p>
+          <p style="margin: 5px 0;"><strong>${formData.phone}</strong></p>
+          <p style="margin: 5px 0;"><strong>${formData.email}</strong></p>
+        </div>
       </div>
-      <hr style="margin: 20px 0;">
-      <p style="font-size: 12px; color: #666;">
-        Submitted on: ${new Date().toLocaleString()}
+      
+      <hr style="margin: 20px 0; border: none; border-top: 1px solid #e2e8f0;">
+      <p style="font-size: 12px; color: #666; text-align: left;">
+        נשלח ב: ${new Date().toLocaleString('he-IL')}
       </p>
     </div>
   `;
@@ -64,7 +74,7 @@ app.post('/api/send-email', async (req, res) => {
     const mailOptions = {
       from: process.env.EMAIL_FROM,
       to: process.env.EMAIL_TO,
-      subject: `${process.env.EMAIL_SUBJECT_PREFIX} - ${name}`,
+      subject: `בקשה לקביעת תור - ${name}`,
       html: createEmailTemplate({ name, phone, email, headacheType, message })
     };
 
