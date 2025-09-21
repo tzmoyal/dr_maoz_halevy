@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, Brain, Headphones, Neck, Flame, AlertTriangle, Smile, Activity, Calendar } from "lucide-react";
+import { ArrowLeft, Brain, Headphones, Bone, Flame, AlertTriangle, Smile, Activity, Calendar } from "lucide-react";
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { useLanguage } from '../components/LanguageContext';
@@ -9,7 +9,7 @@ import { useLanguage } from '../components/LanguageContext';
 const serviceIcons = [
   Brain,        // Migraine Management - Brain/neurological
   Headphones,   // Tension Headache - Stress/tension relief
-  Neck,         // Cervicogenic Headache - Neck/spine related
+  Bone,         // Cervicogenic Headache - Neck/spine related
   Flame,        // Cluster Headache - Intense, burning pain
   AlertTriangle, // Other Headache Disorders - Complex/rare conditions
   Smile,        // Facial Pain - Face/trigeminal related
