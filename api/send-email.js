@@ -1,8 +1,6 @@
-// api/send-email.ts
-import type { VercelRequest, VercelResponse } from '@vercel/node';
-import nodemailer from 'nodemailer';
+const nodemailer = require('nodemailer');
 
-const createEmailTemplate = (formData: any) => {
+const createEmailTemplate = (formData) => {
   const headacheType = formData.headacheType || 'לא צוין';
   return `
     <div style="font-family: Arial, sans-serif; line-height: 1.8; color: #333; direction: rtl; text-align: right;">
@@ -28,47 +26,65 @@ const createEmailTemplate = (formData: any) => {
   `;
 };
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
-  // Optional CORS for cross-origin forms
+module.exports = async (req, res) => {
+  // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  if (req.method === 'OPTIONS') return res.status(204).end();
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
+
   if (req.method !== 'POST') {
-    res.setHeader('Allow', 'POST, OPTIONS');
-    return res.status(405).json({ success: false, message: 'Method Not Allowed' });
+    return res.status(405).json({ success: false, message: 'Method not allowed' });
   }
 
   try {
-    const { name, phone, email, headacheType, message } = (req.body as any) || {};
+    const { name, phone, email, headacheType } = req.body;
+
+    // Validate required fields
     if (!name || !phone || !email) {
-      return res.status(400).json({ success: false, message: 'Missing required fields' });
+      return res.status(400).json({ 
+        success: false, 
+        message: 'Missing required fields' 
+      });
     }
 
-    const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 465,
-      secure: true,
+    // Create transporter
+    const transporter = nodemailer.createTransporter({
+      service: 'gmail',
       auth: {
         user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_APP_PASSWORD,
-      },
+        pass: process.env.GMAIL_APP_PASSWORD
+      }
     });
 
+    // Email options
     const mailOptions = {
-      from: process.env.EMAIL_FROM || process.env.GMAIL_USER, // fallback
-      to: process.env.EMAIL_TO || process.env.GMAIL_USER,      // fallback
+      from: process.env.EMAIL_FROM,
+      to: process.env.EMAIL_TO,
       subject: `בקשה לקביעת תור - ${name}`,
-      html: createEmailTemplate({ name, phone, email, headacheType, message }),
-      replyTo: email,
+      html: createEmailTemplate({ name, phone, email, headacheType })
     };
 
+    // Send email
     const info = await transporter.sendMail(mailOptions);
+    
+    console.log('Email sent:', info.messageId);
+    res.status(200).json({ 
+      success: true, 
+      message: 'Email sent successfully',
+      messageId: info.messageId
+    });
 
-    return res.status(200).json({ success: true, message: 'Email sent', messageId: info.messageId });
-  } catch (error: any) {
+  } catch (error) {
     console.error('Error sending email:', error);
-    return res.status(500).json({ success: false, message: 'Failed to send email', error: error.message });
+    res.status(500).json({ 
+      success: false, 
+      message: 'Failed to send email',
+      error: error.message
+    });
   }
-}
+};
