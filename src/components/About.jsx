@@ -56,11 +56,6 @@ export default function About() {
                     <p className="text-gray-600">{t.about.languages.list}</p>
                 </div>
             </div>
-
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl">
-              <Calendar className={`w-5 h-5 ${language === 'he' ? 'ml-2' : 'mr-2'}`} />
-              {t.about.button}
-            </Button>
           </div>
 
           {/* Visual */}

@@ -136,7 +136,7 @@ export default function About() {
         {/* Call to Action */}
         <div className="text-center mt-16 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-3xl p-12 text-white">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            {language === 'he' ? 'מוכנים לפגוש את ד"ר עיאל מעוז חלבי?' : 'Ready to Meet Dr. Eyal Maoz Halevy?'}
+            {language === 'he' ? 'מוכנים לפגוש את ד"ר אייל מעוז הלוי?' : 'Ready to Meet Dr. Eyal Maoz Halevy?'}
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
             {language === 'he'
