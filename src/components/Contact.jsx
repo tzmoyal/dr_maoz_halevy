@@ -26,38 +26,48 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
-
+  
+    // Always use a relative URL. Works in Vercel prod/preview and with `vercel dev`.
+    const apiUrl = '/api/send-email';
+  
     try {
-      const apiUrl = import.meta.env.DEV 
-        ? 'http://localhost:3000/api/send-email' 
-        : '/api/send-email';
-      
-      const response = await fetch(apiUrl, {
+      // (Optional) quick client-side validation to avoid 400s from the API
+      if (!formData.name || !formData.email || !formData.phone) {
+        setSubmitStatus('error');
+        throw new Error('נא למלא שם, אימייל וטלפון');
+      }
+  
+      const res = await fetch(apiUrl, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-
-      const result = await response.json();
-
-      if (result.success) {
+  
+      // Read once to avoid “Unexpected end of JSON input”
+      const text = await res.text();
+  
+      if (!res.ok) {
+        // Surface the server error (e.g., 405/500) instead of crashing on JSON parse
+        throw new Error(`API ${res.status}: ${text || '(no body)'}`);
+      }
+  
+      const data = text ? JSON.parse(text) : {};
+      if (data.success) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', phone: '', headacheType: '' });
       } else {
-        throw new Error(result.message || 'Failed to send email');
+        throw new Error(data.message || 'Failed to send email');
       }
-    } catch (error) {
-      console.error('Error sending email:', error);
+    } catch (err) {
+      console.error('Error sending email:', err);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
     }
   };
-
+  
   const handleChange = (field, value) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   return (
