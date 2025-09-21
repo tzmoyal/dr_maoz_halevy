@@ -6,6 +6,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 import { createPageUrl } from '@/utils';
+import Breadcrumb from '../components/Breadcrumb';
 
 const Header = () => {
   const { t, toggleLanguage } = useLanguage();
@@ -161,6 +162,7 @@ const AppLayout = ({ children, currentPageName }) => {
   return (
     <div dir={dir} lang={lang} className={font}>
       {showHeaderAndFooter && <Header />}
+      <Breadcrumb />
       <main className={showHeaderAndFooter ? "pt-24" : ""}>
         {children}
       </main>

@@ -129,7 +129,7 @@ export default function Hero() {
            <div className="w-full lg:w-auto flex justify-center lg:justify-end">
             <img
               src="/assets/hero-image.jpg"
-              alt={language === 'he' ? 'תמונת הירו' : 'Hero image'}
+              alt={language === 'he' ? 'ד"ר אייל מעוז הלוי - נוירולוג ומומחה לכאבי ראש' : 'Dr. Eyal Maoz Halevy - Neurologist and Headache Specialist'}
               className="w-[280px] sm:w-[360px] lg:w-[420px] aspect-[3/4] object-cover rounded-2xl shadow-2xl ring-1 ring-black/5"
               loading="lazy"
             />

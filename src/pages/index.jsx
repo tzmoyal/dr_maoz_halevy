@@ -20,6 +20,7 @@ import FacialPain from "./FacialPain";
 import ClusterHeadache from "./ClusterHeadache";
 
 import MigraneInPregnancy from "./MigraneInPregnancy";
+import NotFound from "./NotFound";
 
 import VestibularMigraine from "./VestibularMigraine";
 import Accessibility from "./Accessibility.jsx";
@@ -128,7 +129,7 @@ function PagesContent() {
                 <Route path="/Accessibility" element={<Accessibility />} />
                 <Route path="/Services" element={<Services />} />
                 <Route path="/About" element={<About />} />
-                
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </Layout>
     );
