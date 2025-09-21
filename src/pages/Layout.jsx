@@ -128,7 +128,10 @@ const Footer = () => {
                     <nav aria-label="Footer useful links">
                         <h4 className="font-bold mb-4">{t.footer.links}</h4>
                         <ul className="space-y-2 text-gray-400">
-                            {t.footer.linkItems.map(item => <li key={item}>{item}</li>)}
+                            <li><Link to="/Services" className="hover:text-blue-400 transition-colors">{t.footer.services}</Link></li>
+                            <li><Link to="/About" className="hover:text-blue-400 transition-colors">{t.footer.about}</Link></li>
+                            <li><Link to="/#contact" className="hover:text-blue-400 transition-colors">{t.footer.contactUs}</Link></li>
+                            <li><Link to="/Accessibility" className="hover:text-blue-400 transition-colors">{t.footer.accessibility}</Link></li>
                         </ul>
                     </nav>
                     
@@ -145,11 +148,6 @@ const Footer = () => {
                 
                 <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
                     <p>{t.footer.copyright}</p>
-                    <div className="mt-6 text-center">
-                      <Link to="/Accessibility" className="underline hover:text-blue-400">
-                        {t.lang === 'he' ? 'הצהרת נגישות' : 'Accessibility Statement'}
-                      </Link>
-                    </div>
                 </div>
             </div>
         </footer>

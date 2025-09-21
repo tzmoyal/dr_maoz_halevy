@@ -123,7 +123,10 @@ const translations = {
     footer: {
       p1: 'Providing expert headache and pain management care to help you live pain-free.',
       links: 'Quick Links',
-      linkItems: ['Services', 'About Dr. Halevy', 'Patient Portal', 'Private Practice'],
+      services: 'Services',
+      about: 'About Dr. Halevy',
+      contactUs: 'Contact Us',
+      accessibility: 'Accessibility Statement',
       contact: 'Contact',
       address: 'Weizmann St 14 (Weizmann Tower)\nTel Aviv-Jaffa, 18th Floor',
       copyright: '© 2024 Dr. Eyal Maoz Halevy Headache Specialist. All rights reserved.',
@@ -250,7 +253,10 @@ const translations = {
     footer: {
       p1: 'מספק טיפול מומחה בכאבי ראש וניהול כאב כדי לעזור לכם לחיות ללא כאבים.',
       links: 'קישורים מהירים',
-      linkItems: ['שירותים', 'אודות ד"ר מעוז הלוי', 'פורטל מטופלים', 'מרפאה פרטית'],
+      services: 'שירותים',
+      about: 'אודות ד"ר מעוז הלוי',
+      contactUs: 'צור קשר',
+      accessibility: 'הצהרת נגישות',
       contact: 'צור קשר',
       address: 'רח\' ויצמן 14 (מגדל ויצמן)\nתל אביב-יפו, קומה 18',
       copyright: '© 2024 ד"ר אייל מעוז הלוי מומחה לכאבי ראש. כל הזכויות שמורות.',
