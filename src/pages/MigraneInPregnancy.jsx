@@ -15,9 +15,9 @@ export default function MigraneInPregnancy() {
       {/* Header */}
       <div className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4">
-          <Link to={createPageUrl('Home')} className="inline-flex items-center gap-2 text-pink-600 hover:text-pink-700 transition-colors">
+          <Link to={createPageUrl('MigraineTreatment')} className="inline-flex items-center gap-2 text-pink-600 hover:text-pink-700 transition-colors">
             <ArrowLeft className="w-5 h-5" />
-            {language === 'he' ? 'חזרה לעמוד הראשי' : 'Back to Home'}
+            {language === 'he' ? 'חזרה לטיפול במיגרנה' : 'Back to Migraine Treatment'}
           </Link>
         </div>
       </div>

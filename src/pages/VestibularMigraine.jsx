@@ -16,11 +16,11 @@ export default function VestibularMigraine() {
       <div className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <Link
-              to="/Services"
+              to={createPageUrl('MigraineTreatment')}
               className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors"
             >
               <ArrowLeft className="w-5 h-5" />
-              {language === 'he' ? 'חזרה לתחומי טיפול' : 'Back to Services'}
+              {language === 'he' ? 'חזרה לטיפול במיגרנה' : 'Back to Migraine Treatment'}
             </Link>
         </div>
       </div>
