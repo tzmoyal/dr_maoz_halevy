@@ -64,7 +64,7 @@ export default function OtherNeurologicalDisorders() {
 
         {/* Main Conditions */}
         <div className="grid lg:grid-cols-3 gap-8 mb-16" dir={language === 'he' ? 'rtl' : 'ltr'}>
-          <Card className="p-8 bg-white shadow-xl border-0">
+          <Card className="p-8 bg-white shadow-xl border-0" dir={language === 'he' ? 'rtl' : 'ltr'}>
             <CardContent className="p-0">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6">
                 <Zap className="w-8 h-8 text-white" />
@@ -215,10 +215,6 @@ export default function OtherNeurologicalDisorders() {
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                   <span>{language === 'he' ? 'הערכת יכולת תפקודית' : 'Functional capacity assessment'}</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                  <span>{language === 'he' ? 'דיווח מפורט לצרכים משפטיים וביטוחיים' : 'Detailed legal and insurance reporting'}</span>
                 </li>
               </ul>
             </CardContent>

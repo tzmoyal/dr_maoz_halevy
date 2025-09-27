@@ -23,7 +23,8 @@ const translations = {
       title1: 'Find Relief from ',
       title2: 'Headaches',
       title3: '',
-      description: '"Headaches and facial pain are not just symptoms – they affect quality of life, the ability to work, care for family, and enjoy daily routines." Dr. Eyal Maoz Halevy sees patients and their pain, and dedicates his professional path to restoring their function, control, and health.',
+      description: '"Headaches and facial pain are not just symptoms – they affect quality of life, the ability to work, care for family, and enjoy daily routines."',
+      description2: 'Dr. Eyal Maoz Halevy sees patients and their pain, and dedicates his professional path to restoring their function, control, and health.',
       button1: 'Schedule Consultation',
       button2: 'Send WhatsApp Message Now',
       button3: 'Call Now',
@@ -62,8 +63,9 @@ const translations = {
       credentials: [
         "MD, Ben Gurion University of the Negev",
         "Neurology Residency at Sheba Medical Center",
-        "Fellowship in Headache Medicine, University of Connecticut, USA",
-        "Member of International & American Headache Societies"
+        "Fellowship in Headache and Facial Pain, Hartford Healthcare, University of Connecticut, USA",
+        "Member of the American Headache Society",
+        "Member of the International Headache Society"
       ],
       languages: {
         title: 'Languages',
@@ -94,9 +96,9 @@ const translations = {
       title2: ' Consultation',
       description: 'Take the first step towards lasting headache relief. We\'re here to help you reclaim your life from chronic pain.',
       info: [
-        { title: "Call Us", details: "03-5496949", subtext: "Mon-Fri 8AM-6PM" },
-        { title: "WhatsApp", details: "050-2804723", subtext: "Quick responses" },
-        { title: "Email", details: "office@stroke-il.com", subtext: "We respond within 2 hours" },
+        { title: "Call Us", details: "03-5496949", subtext: "Sun-Thu 9:30AM-9PM, Fri & Holiday Eves 9:30AM-1PM" },
+        { title: "WhatsApp", details: "050-2804723", subtext: "" },
+        { title: "Email", details: "office@stroke-il.com", subtext: "" },
         { title: "Visit Us", details: "Weizmann St 14 (Weizmann Tower), Tel Aviv-Jaffa, 18th Floor", subtext: "Parking available nearby" }
       ],
       insurance: {
@@ -153,7 +155,8 @@ const translations = {
       title1: 'מצאו הקלה מ',
       title2: 'כאבי ראש',
       title3: '',
-      description: '"כאבי ראש וכאבי פנים אינם רק סימפטום – הם פוגעים באיכות החיים, ביכולת לעבוד, לטפל במשפחה וליהנות משגרת היום" ד"ר אייל מעוז הלוי רואה את המטופלים ואת כאבם, ומקדיש את דרכו המקצועית להחזיר להם את התפקוד, השליטה והבריאות.',
+      description: '"כאבי ראש וכאבי פנים אינם רק סימפטום – הם פוגעים באיכות החיים, ביכולת לעבוד, לטפל במשפחה וליהנות משגרת היום"',
+      description2: 'ד"ר אייל מעוז הלוי רואה את המטופלים ואת כאבם, ומקדיש את דרכו המקצועית להחזיר להם את התפקוד, השליטה והבריאות.',
       button1: 'קבעו פגישת ייעוץ',
       button2: 'שלחו הודעת וואטסאפ עכשיו',
       button3: 'התקשרו עכשיו',
@@ -174,7 +177,7 @@ const translations = {
         { title: "ניהול מיגרנות", description: "תוכניות טיפול מקיפות הכוללות תרופות מונעות, שינויים באורח החיים וטיפולים חדשניים." },
         { title: "כאב ראש מתחי", description: "גישות ממוקדות לשבירת מעגל כאבי הראש המתחיים הכרוניים באמצעות התערבויות רפואיות מוכחות." },
         { title: "כאב ראש צווארי (סרוויקוגני)", description: "אבחון וטיפול בכאבי ראש שמקורם בצוואר ובעמוד השדרה, שלעיתים מאובחנים בטעות כמיגרנות." },
-        { title: "כאב ראש מקבצי (אשכולי)", description: "טיפול מיוחד בהפרעת כאב הראש הראשונית הקשה ביותר, עם טיפולים ממוקדים לשבירת מחזורי האשכולות." },
+        { title: "כאב ראש מקבצי", description: "טיפול מיוחד בהפרעת כאב הראש הראשונית הקשה ביותר, עם טיפולים ממוקדים לשבירת מחזורי האשכולות." },
         { title: "הפרעות כאב ראש אחרות", description: "אבחון וטיפול מיוחד בצפלגיות אוטונומיות טריגמינליות ותסמונות כאב ראש נדירות." },
         { title: "כאבי פנים", description: "טיפול מיוחד בנוירלגיה של הטריגמינוס, הפרעות TMJ ומצבי כאב פנים מורכבים אחרים." },
         { title: "הפרעות נוירולוגיות אחרות", description: "טיפול נוירולוגי מקיף להפרעות קשב וריכוז, הפרעות קוגניטיביות וייעוצים נוירולוגיים כלליים." }
@@ -192,8 +195,9 @@ const translations = {
       credentials: [
         "MD, אוניברסיטת בן-גוריון בנגב",
         "התמחות בנוירולוגיה במרכז הרפואי שיבא",
-        "התמחות-על ברפואת כאבי ראש, אוניברסיטת קונטיקט, ארה\"ב",
-        "חבר באגודות כאבי הראש הבינלאומית והאמריקאית"
+        "התמחות-על ברפואת כאבי ראש ופנים, Hartford Healthcare, אוניברסיטת קונטיקט, ארה\"ב",
+        "חבר באיגוד כאבי ראש האמריקאי",
+        "חבר באיגוד כאבי הראש הבינלאומי"
       ],
       languages: {
         title: 'שפות',
@@ -224,14 +228,14 @@ const translations = {
       title2: 'הייעוץ שלכם',
       description: 'עשו את הצעד הראשון לקראת הקלה מתמשכת בכאבי ראש. אנחנו כאן כדי לעזור לכם להשיב את חייכם מכאב כרוני.',
       info: [
-        { title: "התקשרו אלינו", details: "03-5496949", subtext: "שני-שישי 8:00-18:00" },
-        { title: "וואטסאפ", details: "050-2804723", subtext: "מענה מהיר" },
-        { title: "אימייל", details: "office@stroke-il.com", subtext: "אנו מגיבים תוך שעתיים" },
+        { title: "התקשרו אלינו", details: "03-5496949", subtext: "א'-ה' 9:30-21:00, ו' וערבי חג 9:30-13:00" },
+        { title: "וואטסאפ", details: "050-2804723", subtext: "" },
+        { title: "אימייל", details: "office@stroke-il.com", subtext: "" },
         { title: "בקרו אותנו", details: "רח\' ויצמן 14 (מגדל ויצמן), תל אביב-יפו, קומה 18", subtext: "חניה זמינה בסביבה" }
       ],
       insurance: {
         title: 'מרפאה פרטית',
-        description: 'אנו פועלים כמרפאה פרטית. אנא צרו עמנו קשר לדיון באפשרויות התשלום וכל שאלה הנוגעת לכיסוי ביטוחי.'
+        description: 'אנו פועלים כמרפאה פרטית. אנא צרו עמנו קשר לדיון באפשרויות התשלום.'
       },
       form: {
         title: 'בקשת תור',

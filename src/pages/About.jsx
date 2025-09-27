@@ -1,11 +1,11 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, GraduationCap, Award, Users, MapPin, Calendar, Star, Languages } from "lucide-react";
+import { ArrowLeft, GraduationCap, Award, Users, MapPin, Calendar, Star, Languages, Shield } from "lucide-react";
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../components/LanguageContext';
 
-const credentialIcons = [GraduationCap, Award, Star, Users];
+const credentialIcons = [GraduationCap, Award, Star, Users, Shield];
 
 export default function About() {
   const { t, language } = useLanguage();
@@ -50,12 +50,25 @@ export default function About() {
             <div className="grid sm:grid-cols-2 gap-4">
               {t.about.credentials.map((text, index) => {
                 const Icon = credentialIcons[index];
+                const isFellowship = text.includes('Fellowship in Headache and Facial Pain') || text.includes('התמחות-על ברפואת כאבי ראש ופנים');
+                
                 return (
                   <div key={index} className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm">
-                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-blue-600" />
+                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-5 h-5 text-blue-600 flex-shrink-0" />
                     </div>
-                    <span className="text-gray-700 font-medium">{text}</span>
+                    {isFellowship ? (
+                      <a 
+                        href="https://hartfordhealthcare.org/health-professionals/education/residencies-fellowships/headache-and-facial-pain-fellowship#:~:text=Our%20faculty%20takes%20an%20active,starts%20July%201%20each%20year."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-700 hover:text-gray-900 font-medium underline transition-colors cursor-pointer"
+                      >
+                        {text}
+                      </a>
+                    ) : (
+                      <span className="text-gray-700 font-medium">{text}</span>
+                    )}
                   </div>
                 )
               })}
@@ -63,8 +76,8 @@ export default function About() {
             
             {/* Languages */}
             <div className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm">
-                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <Languages className="w-5 h-5 text-blue-600" />
+                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Languages className="w-5 h-5 text-blue-600 flex-shrink-0" />
                 </div>
                 <div>
                     <span className="text-gray-700 font-bold">{t.about.languages.title}</span>
@@ -95,7 +108,7 @@ export default function About() {
                     {t.about.title2}
                   </h3>
                   <p className="text-blue-600 font-medium">
-                    <a href="https://americanheadachesociety.org/about/awards/frontiers-in-headache-research-scholarship-award" target="_blank" rel="noopener noreferrer">{language === 'he' ? 'בכנס של איגוד כאבי הראש האמריקאי' : 'At a professional medical conference'}</a>
+                    <a href="https://americanheadachesociety.org/about/awards/frontiers-in-headache-research-scholarship-award" target="_blank" rel="noopener noreferrer">{language === 'he' ? ' בכנס של איגוד כאבי הראש האמריקאי 2023' : 'At a professional medical conference 2023'}</a>
                   </p>
                 </div>
               </CardContent>

@@ -97,6 +97,11 @@ export default function Hero() {
               <p className={`text-xl lg:text-2xl text-gray-700 leading-relaxed font-medium ${language === 'he' ? '' : ''}`}>
                 {t.hero.description}
               </p>
+              {t.hero.description2 && (
+                <p className={`text-xl lg:text-2xl text-gray-700 leading-relaxed font-medium ${language === 'he' ? '' : ''}`}>
+                  {t.hero.description2}
+                </p>
+              )}
             </div>
             <div className={`flex flex-col sm:flex-row gap-4 justify-start`}>
               <a href="#contact">
