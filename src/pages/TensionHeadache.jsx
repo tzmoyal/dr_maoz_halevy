@@ -135,7 +135,7 @@ export default function TensionHeadache() {
 
         {/* Bottom Line Section */}
         <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 mb-16" dir={language === 'he' ? 'rtl' : 'ltr'}>
-          <div className="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+          <div className={`flex flex-col md:flex-row items-center gap-6 text-center ${language === 'he' ? 'md:text-right' : 'md:text-left'}`}>
             <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center flex-shrink-0">
               <Info className="w-10 h-10 text-white" />
             </div>
