@@ -114,16 +114,26 @@ export default function Treatments() {
               <div className="w-full h-64 md:h-full rounded-2xl bg-cover bg-center order-last md:order-first" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1599849503434-b5a4a54c69d4?q=80&w=2340&auto=format&fit=crop)'}}></div>
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  {language === 'he' ? 'חסמים עצביים' : 'Nerve Block Procedures'}
+                  {language === 'he' ? 'חסמים עצביים ונקודות טריגר' : 'Nerve Blocks and Trigger Points Injections'}
                 </h2>
                 {language === 'he' ? (
-                  <p className="text-gray-600 leading-relaxed mb-6" dir="rtl" style={{fontFamily: 'Arial, sans-serif'}}>
-                    זריקות ממוקדות בראש, פנים והצוואר של חומרי הרדמה מקומיים כגון לידוקאין ובופיווקאין. חסמים עצביים חוסמים את סיגנל הכאב ובזכות תגובתם המהירה לכאב, הם משמשים כטיפול מגשר למיגרנה, וכן כטיפול מניעתי יעיל ובטוח לנשים בהריון עם מיגרנה. כמו כן חסמיים משמשים כטיפול מציל להתקפי כאב ראש מקבצי, וכאבי ראש ראשונים אחרים.
-                  </p>
+                  <div className="mb-6">
+                    <p className="text-gray-600 leading-relaxed mb-4" dir="rtl" style={{fontFamily: 'Arial, sans-serif'}}>
+                      זריקות ממוקדות בראש, פנים והצוואר של חומרי הרדמה מקומיים כגון לידוקאין ובופיווקאין. חסמים עצביים חוסמים את סיגנל הכאב ובזכות תגובתם המהירה לכאב, הם משמשים כטיפול מגשר למיגרנה, וכן כטיפול מניעתי יעיל ובטוח לנשים בהריון עם מיגרנה. כמו כן חסמיים משמשים כטיפול מציל להתקפי כאב ראש מקבצי, וכאבי ראש ראשונים אחרים.
+                    </p>
+                    <p className="text-gray-600 leading-relaxed" dir="rtl" style={{fontFamily: 'Arial, sans-serif'}}>
+                      בטיפול נכון, הזרקות לנקודות Trigger לשרירי הצוואר והכתפיים מביא להקלה מידית של כאב ותפיסות.
+                    </p>
+                  </div>
                 ) : (
-                  <p className="text-gray-600 leading-relaxed mb-6">
-                    Targeted injections in the head, face, and neck using local anesthetics such as lidocaine and bupivacaine. Nerve blocks block pain signals and thanks to their rapid response to pain, they serve as bridging treatment for migraines, as well as effective and safe preventive treatment for pregnant women with migraines. Nerve blocks also serve as rescue treatment for cluster headache attacks and other primary headaches.
-                  </p>
+                  <div className="mb-6">
+                    <p className="text-gray-600 leading-relaxed mb-4">
+                      Targeted injections in the head, face, and neck using local anesthetics such as lidocaine and bupivacaine. Nerve blocks block pain signals and thanks to their rapid response to pain, they serve as bridging treatment for migraines, as well as effective and safe preventive treatment for pregnant women with migraines. Nerve blocks also serve as rescue treatment for cluster headache attacks and other primary headaches.
+                    </p>
+                    <p className="text-gray-600 leading-relaxed">
+                      With the right care, trigger point injections to the muscles of the neck and shoulders can immediately alleviate pain and tightness.
+                    </p>
+                  </div>
                 )}
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start gap-3">
