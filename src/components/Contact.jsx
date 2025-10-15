@@ -110,31 +110,64 @@ export default function Contact() {
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6" role="form" aria-label={t.contact.form.title}>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-900">{t.contact.form.name}</label>
-                    <Input value={formData.name} onChange={(e) => handleChange('name', e.target.value)} placeholder={t.contact.form.name_ph} className="border-gray-200 focus:border-blue-600 rounded-xl" required />
+                    <label htmlFor="name" className="text-sm font-medium text-gray-900">{t.contact.form.name}</label>
+                    <Input 
+                      id="name"
+                      value={formData.name} 
+                      onChange={(e) => handleChange('name', e.target.value)} 
+                      placeholder={t.contact.form.name_ph} 
+                      className="border-gray-200 focus:border-blue-600 rounded-xl" 
+                      required 
+                      aria-required="true"
+                      aria-describedby="name-error"
+                    />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-900">{t.contact.form.phone}</label>
+                    <label htmlFor="phone" className="text-sm font-medium text-gray-900">{t.contact.form.phone}</label>
                     <Input 
+                      id="phone"
+                      type="tel"
                       value={formData.phone} 
                       onChange={(e) => handleChange('phone', e.target.value)} 
                       placeholder={t.contact.form.phone_ph} 
                       className="border-gray-200 focus:border-blue-600 rounded-xl" 
                       dir="ltr"
                       required 
+                      aria-required="true"
+                      aria-describedby="phone-error"
                     />
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-900">{t.contact.form.email}</label>
-                  <Input type="email" value={formData.email} onChange={(e) => handleChange('email', e.target.value)} placeholder={t.contact.form.email_ph} className="border-gray-200 focus:border-blue-600 rounded-xl" required />
+                  <label htmlFor="email" className="text-sm font-medium text-gray-900">{t.contact.form.email}</label>
+                  <Input 
+                    id="email"
+                    type="email" 
+                    value={formData.email} 
+                    onChange={(e) => handleChange('email', e.target.value)} 
+                    placeholder={t.contact.form.email_ph} 
+                    className="border-gray-200 focus:border-blue-600 rounded-xl" 
+                    required 
+                    aria-required="true"
+                    aria-describedby="email-error"
+                  />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-900">{t.contact.form.headache}</label>
-                  <Input value={formData.headacheType} onChange={(e) => handleChange('headacheType', e.target.value)} placeholder={t.contact.form.headache_ph} className="border-gray-200 focus:border-blue-600 rounded-xl" />
+                  <label htmlFor="headache" className="text-sm font-medium text-gray-900">{t.contact.form.headache}</label>
+                  <Input 
+                    id="headache"
+                    value={formData.headacheType} 
+                    onChange={(e) => handleChange('headacheType', e.target.value)} 
+                    placeholder={t.contact.form.headache_ph} 
+                    className="border-gray-200 focus:border-blue-600 rounded-xl" 
+                    aria-describedby="headache-help"
+                  />
+                  <div id="headache-help" className="text-sm text-gray-500">
+                    {language === 'he' ? 'אופציונלי - עזור לנו להבין את סוג הכאב שלך' : 'Optional - Help us understand your pain type'}
+                  </div>
                 </div>
                 <Button 
                   type="submit" 

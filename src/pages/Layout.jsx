@@ -39,7 +39,7 @@ const Header = () => {
               <p className="text-sm text-blue-600">{t.header.specialty}</p>
             </div>
           </Link>
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-8" role="navigation" aria-label="Main navigation">
             <Link to="/Services" className="text-gray-600 hover:text-blue-600 transition-colors">
               {t.header.nav.services}
             </Link>
@@ -59,8 +59,8 @@ const Header = () => {
                   <Menu className="w-6 h-6" />
                 </button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-80">
-                <div className="flex flex-col gap-6 mt-8">
+              <SheetContent side="right" className="w-80" aria-label="Mobile navigation menu">
+                <nav className="flex flex-col gap-6 mt-8" role="navigation" aria-label="Mobile navigation">
                   <SheetClose asChild>
                     <Link to="/Services" className="text-gray-700 hover:text-blue-600 transition-colors">
                       {t.header.nav.services}
@@ -91,7 +91,7 @@ const Header = () => {
                       {t.header.language}
                     </button>
                   </SheetClose>
-                </div>
+                </nav>
               </SheetContent>
             </Sheet>
           </div>
@@ -163,7 +163,7 @@ const AppLayout = ({ children, currentPageName }) => {
     <div dir={dir} lang={lang} className={font}>
       {showHeaderAndFooter && <Header />}
       <Breadcrumb />
-      <main className={showHeaderAndFooter ? "pt-24" : ""}>
+      <main id="main" role="main" className={showHeaderAndFooter ? "pt-24" : ""}>
         {children}
       </main>
       {showHeaderAndFooter && <Footer />}
