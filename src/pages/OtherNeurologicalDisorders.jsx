@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, Brain, Heart, Zap, Activity, Calendar, CheckCircle, Shield, Target, Stethoscope, ClipboardCheck, Users } from "lucide-react";
+import { ArrowLeft, Calendar } from "lucide-react";
 import { Link, useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { useLanguage } from '../components/LanguageContext';
@@ -30,7 +30,6 @@ export default function OtherNeurologicalDisorders() {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-100/80 backdrop-blur-sm text-orange-700 rounded-full text-sm font-medium mb-4">
-            <Brain className="w-4 h-4" />
             {language === 'he' ? 'טיפול נוירולוגי מקיף' : 'Comprehensive Neurological Care'}
           </div>
           
@@ -66,9 +65,6 @@ export default function OtherNeurologicalDisorders() {
         <div className="grid lg:grid-cols-3 gap-8 mb-16" dir={language === 'he' ? 'rtl' : 'ltr'}>
           <Card className="p-8 bg-white shadow-xl border-0" dir={language === 'he' ? 'rtl' : 'ltr'}>
             <CardContent className="p-0">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6">
-                <Zap className="w-8 h-8 text-white" />
-              </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">{language === 'he' ? 'ADHD והפרעות קשב' : 'ADHD & Attention Disorders'}</h3>
               
               <h4 className="text-lg font-bold text-gray-900 mb-3">
@@ -101,7 +97,6 @@ export default function OtherNeurologicalDisorders() {
                   ]
                 ).map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -146,7 +141,6 @@ export default function OtherNeurologicalDisorders() {
                   ]
                 ).map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -164,9 +158,6 @@ export default function OtherNeurologicalDisorders() {
 
           <Card className="p-8 bg-white shadow-xl border-0">
             <CardContent className="p-0">
-              <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-green-600 rounded-2xl flex items-center justify-center mb-6">
-                <Stethoscope className="w-8 h-8 text-white" />
-              </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">{language === 'he' ? 'נוירולוגיה כללית' : 'General Neurology'}</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
                 {language === 'he'
@@ -176,19 +167,15 @@ export default function OtherNeurologicalDisorders() {
               </p>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                   <span>{language === 'he' ? 'סחרחורת וורטיגו' : 'Dizziness and vertigo'}</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                   <span>{language === 'he' ? 'חוסר תחושה, עקצוצים וחולשה' : 'Numbness, tingling, and weakness'}</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                   <span>{language === 'he' ? 'הפרעות תנועה ורעד' : 'Movement disorders and tremors'}</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                   <span>{language === 'he' ? 'חששות בנוגע לזיכרון' : 'Memory Concerns'}</span>
                 </li>
               </ul>
@@ -197,9 +184,6 @@ export default function OtherNeurologicalDisorders() {
 
           <Card className="p-8 bg-white shadow-xl border-0">
             <CardContent className="p-0">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6">
-                <ClipboardCheck className="w-8 h-8 text-white" />
-              </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">{language === 'he' ? 'הערכות לביטוח לאומי' : 'Assessments for Social Security'}</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
                 {language === 'he'
@@ -209,11 +193,9 @@ export default function OtherNeurologicalDisorders() {
               </p>
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                   <span>{language === 'he' ? 'ראיות רפואיות אובייקטיביות' : 'Objective medical evidence'}</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                   <span>{language === 'he' ? 'הערכת יכולת תפקודית' : 'Functional capacity assessment'}</span>
                 </li>
               </ul>
@@ -237,9 +219,6 @@ export default function OtherNeurologicalDisorders() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Brain className="w-8 h-8 text-white" />
-              </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">{language === 'he' ? 'חששות בנוגע לזיכרון' : 'Memory Concerns'}</h3>
               <p className="text-gray-600">
                 {language === 'he'
@@ -250,9 +229,6 @@ export default function OtherNeurologicalDisorders() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Users className="w-8 h-8 text-white" />
-              </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">{language === 'he' ? 'הערכת דמנציה' : 'Dementia Evaluation'}</h3>
               <p className="text-gray-600">
                 {language === 'he'
@@ -263,9 +239,6 @@ export default function OtherNeurologicalDisorders() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Activity className="w-8 h-8 text-white" />
-              </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">{language === 'he' ? 'ליקוי קוגניטיבי מתון (MCI)' : 'Mild Cognitive Impairment (MCI)'}</h3>
               <p className="text-gray-600">
                 {language === 'he'
@@ -288,7 +261,7 @@ export default function OtherNeurologicalDisorders() {
               : 'Get comprehensive neurological evaluation and personalized treatment plans from an experienced neurologist.'
             }
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href="/#contact">
               <Button size="lg" className="bg-white text-orange-600 hover:bg-orange-50 px-8 py-4 text-lg rounded-xl">
                 <Calendar className="w-5 h-5 mr-2" />

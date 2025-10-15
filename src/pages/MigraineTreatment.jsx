@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, Brain, Target, Calendar, CheckCircle, Info, Heart, Shield as VestibularIcon } from "lucide-react";
+import { ArrowLeft, Calendar } from "lucide-react";
 import { Link, useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { useLanguage } from '../components/LanguageContext';
@@ -30,7 +30,6 @@ export default function MigraineTreatment() {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100/80 backdrop-blur-sm text-blue-700 rounded-full text-sm font-medium mb-4">
-            <Brain className="w-4 h-4" />
             {language === 'he' ? 'טיפול מומחה' : 'Specialized Treatment'}
           </div>
           
@@ -67,9 +66,6 @@ export default function MigraineTreatment() {
         <div className="grid lg:grid-cols-2 gap-8 mb-16" dir={language === 'he' ? 'rtl' : 'ltr'}>
           <Card className="p-8 bg-white shadow-xl border-0">
             <CardContent className="p-0">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6">
-                <Brain className="w-8 h-8 text-white" />
-              </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 {language === 'he' ? 'מהי מיגרנה?' : 'What is a Migraine?'}
               </h3>
@@ -102,7 +98,6 @@ export default function MigraineTreatment() {
                   : ['Emotional or mental stress', 'Lack of sleep or irregular sleep patterns', 'Insufficient water intake', 'Hormonal changes', 'Certain foods or drinks (e.g., chocolate, red wine, caffeine)', 'Changes in the weather']
                 ).map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -112,9 +107,6 @@ export default function MigraineTreatment() {
 
           <Card className="p-8 bg-white shadow-xl border-0">
             <CardContent className="p-0">
-              <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6">
-                <Target className="w-8 h-8 text-white" />
-              </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 {language === 'he' ? 'איך ניתן לטפל?' : 'How Can It Be Treated?'}
               </h3>
@@ -159,9 +151,6 @@ export default function MigraineTreatment() {
               <Card className="group h-full hover:shadow-2xl transition-all duration-300 border-0 bg-white">
                 <CardContent className="p-8">
                   <div className="flex items-center gap-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <Heart className="w-8 h-8 text-white" />
-                    </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-900 mb-2">{language === 'he' ? 'מיגרנה בהריון' : 'Migraine in Pregnancy'}</h3>
                       <p className="text-gray-600">{language === 'he' ? 'ניהול בטוח ויעיל במהלך הריון והנקה.' : 'Safe and effective management during pregnancy and breastfeeding.'}</p>
@@ -174,9 +163,6 @@ export default function MigraineTreatment() {
               <Card className="group h-full hover:shadow-2xl transition-all duration-300 border-0 bg-white">
                 <CardContent className="p-8">
                   <div className="flex items-center gap-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <VestibularIcon className="w-8 h-8 text-white" />
-                    </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-900 mb-2">{language === 'he' ? 'מיגרנה וסטיבולרית' : 'Vestibular Migraine'}</h3>
                       <p className="text-gray-600">{language === 'he' ? 'טיפול מומחה במיגרנות הגורמות לסחרחורת.' : 'Expert treatment for migraines that cause dizziness.'}</p>
@@ -191,9 +177,6 @@ export default function MigraineTreatment() {
         {/* Bottom Line Section */}
         <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 mb-16" dir={language === 'he' ? 'rtl' : 'ltr'}>
           <div className={`flex flex-col md:flex-row items-center gap-6 text-center ${language === 'he' ? 'md:text-right' : 'md:text-left'}`}>
-            <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center flex-shrink-0">
-              <Info className="w-10 h-10 text-white" />
-            </div>
             <div>
               <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
                 {language === 'he' ? 'בשורה התחתונה' : 'The Bottom Line'}
@@ -216,7 +199,7 @@ export default function MigraineTreatment() {
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
             {language === 'he' ? 'קבעו פגישת ייעוץ כדי לדון באסטרטגיות ניהול מיגרנה מותאמות אישית לצרכים הספציפיים שלכם.' : 'Schedule your consultation to discuss personalized migraine management strategies tailored to your specific needs.'}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href="/#contact">
               <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg rounded-xl">
                 <Calendar className="w-5 h-5 mr-2" />

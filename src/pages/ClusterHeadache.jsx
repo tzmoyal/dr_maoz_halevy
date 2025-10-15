@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, Brain, Zap, Calendar, CheckCircle, Info, Clock, Shield } from "lucide-react";
+import { ArrowLeft, Calendar } from "lucide-react";
 import { Link, useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { useLanguage } from '../components/LanguageContext';
@@ -30,7 +30,6 @@ export default function ClusterHeadache() {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-100/80 backdrop-blur-sm text-red-700 rounded-full text-sm font-medium mb-4">
-            <Zap className="w-4 h-4" />
             {language === 'he' ? 'אחד מכאבי הראש החזקים ביותר' : 'One of the Most Severe Headaches'}
           </div>
           
@@ -65,9 +64,6 @@ export default function ClusterHeadache() {
         <div className="grid lg:grid-cols-2 gap-8 mb-16" dir={language === 'he' ? 'rtl' : 'ltr'}>
           <Card className="p-8 bg-white shadow-xl border-0">
             <CardContent className="p-0">
-              <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-orange-600 rounded-2xl flex items-center justify-center mb-6">
-                <Zap className="w-8 h-8 text-white" />
-              </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">{language === 'he' ? 'הבנת כאב ראש מקבצי' : 'Understanding Cluster Headaches'}</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
                 {language === 'he' 
@@ -80,7 +76,6 @@ export default function ClusterHeadache() {
                   : ['Sharp, burning pain, often described as a "hot knife" or "drill" in the eye', 'Short attacks (15 minutes to 3 hours) but extremely intense', 'Occurs in clusters (cycles) - multiple attacks per day for weeks or months', 'The pain is often described as unbearable, therefore it is important to identify and treat it correctly.']
                 ).map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -93,7 +88,6 @@ export default function ClusterHeadache() {
                   : ['Attacks occur at the same time each day (sometimes like an "alarm clock")', 'Relatively rare - affects about 1 in 1000 people', 'More common in men (3:1 ratio) aged 20-40', 'Can be episodic (seasonal) or chronic']
                  ).map((item, index) => (
                    <li key={index} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                  ))}
@@ -111,9 +105,6 @@ export default function ClusterHeadache() {
 
           <Card className="p-8 bg-white shadow-xl border-0">
             <CardContent className="p-0">
-              <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-6">
-                <Shield className="w-8 h-8 text-white" />
-              </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">{language === 'he' ? 'אפשרויות טיפול מתקדמות' : 'Advanced Treatment Options'}</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
                 {language === 'he'
@@ -128,7 +119,6 @@ export default function ClusterHeadache() {
                     : ['Acute treatment – inhalation of high-concentration oxygen or specific medications to relieve the pain.', 'Preventive treatment – medications given for a certain period to shorten the "cluster season" and reduce their frequency.', 'In some cases, more advanced treatment methods are also considered, including invasive procedures.']
                   ).map((item, index) => (
                     <li key={index} className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -141,9 +131,6 @@ export default function ClusterHeadache() {
         {/* Bottom Line Section */}
         <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 mb-16" dir={language === 'he' ? 'rtl' : 'ltr'}>
           <div className={`flex flex-col md:flex-row items-center gap-6 text-center ${language === 'he' ? 'md:text-right' : 'md:text-left'}`}>
-            <div className="w-20 h-20 bg-gradient-to-br from-red-500 to-orange-600 rounded-2xl flex items-center justify-center flex-shrink-0">
-              <Info className="w-10 h-10 text-white" />
-            </div>
             <div>
               <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">{language === 'he' ? 'בשורה התחתונה' : 'The Bottom Line'}</h2>
               <p className="text-lg leading-relaxed text-gray-700">
@@ -167,7 +154,7 @@ export default function ClusterHeadache() {
               : 'Cluster headaches require immediate expert treatment. Schedule an urgent consultation to receive a tailored treatment plan that will help you break free from this devastating cycle.'
             }
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href="/#contact">
               <Button size="lg" className="bg-white text-red-600 hover:bg-red-50 px-8 py-4 text-lg rounded-xl">
                 <Calendar className="w-5 h-5 mr-2" />

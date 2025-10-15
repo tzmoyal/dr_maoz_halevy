@@ -108,7 +108,7 @@ export default function Services() {
               : 'Get a professional evaluation and personalized treatment plan from an expert neurologist.'
             }
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href="/#contact">
               <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg rounded-xl">
                 <Calendar className="w-5 h-5 mr-2" />

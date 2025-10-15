@@ -157,7 +157,7 @@ export default function About() {
               : 'Get expert neurological care from an experienced specialist with extensive experience in diagnosing and treating a wide range of neurological conditions.'
             }
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href="/#contact">
               <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg rounded-xl">
                 <Calendar className="w-5 h-5 mr-2" />

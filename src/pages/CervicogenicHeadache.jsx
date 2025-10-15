@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, Brain, Bone, Target, Calendar, CheckCircle, Activity, Info } from "lucide-react";
+import { ArrowLeft, Calendar } from "lucide-react";
 import { Link, useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { useLanguage } from '../components/LanguageContext';
@@ -29,7 +29,6 @@ export default function CervicogenicHeadache() {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-sky-100/80 backdrop-blur-sm text-sky-700 rounded-full text-sm font-medium mb-4">
-            <Bone className="w-4 h-4" />
             {language === 'he' ? 'אבחון וטיפול מומחה' : 'Specialized Diagnosis & Treatment'}
           </div>
           
@@ -65,9 +64,6 @@ export default function CervicogenicHeadache() {
         <div className="grid lg:grid-cols-2 gap-8 mb-16" dir={language === 'he' ? 'rtl' : 'ltr'}>
           <Card className="p-8 bg-white shadow-xl border-0">
             <CardContent className="p-0">
-              <div className="w-16 h-16 bg-gradient-to-br from-sky-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6">
-                <Brain className="w-8 h-8 text-white" />
-              </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">{language === 'he' ? 'הבנת התסמינים' : 'Understanding the Symptoms'}</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
                 {language === 'he' 
@@ -80,7 +76,6 @@ export default function CervicogenicHeadache() {
                   : ['Pain on one or both sides of the head, usually starting in the neck or back of the head and moving upwards.', 'The pain can worsen with certain neck movements or physical exertion.', 'Sometimes accompanied by neck stiffness, limited range of motion, or tenderness to the touch in the area.', 'Can be chronic and persistent, or appear in recurring attacks.']
                 ).map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -93,7 +88,6 @@ export default function CervicogenicHeadache() {
                   : ['Posture and wear issues due to prolonged work at a computer or incorrect sitting.', 'Neck injuries, such as whiplash after a car accident.', 'Degenerative changes in the cervical vertebrae or joints.', 'Chronic muscle tension in the neck and shoulders.']
                  ).map((item, index) => (
                    <li key={index} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                  ))}
@@ -103,9 +97,6 @@ export default function CervicogenicHeadache() {
 
           <Card className="p-8 bg-white shadow-xl border-0">
             <CardContent className="p-0">
-              <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6">
-                <Target className="w-8 h-8 text-white" />
-              </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">{language === 'he' ? 'אבחון וגישות טיפול' : 'Diagnosis and Treatment Approaches'}</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
                 {language === 'he'
@@ -119,7 +110,6 @@ export default function CervicogenicHeadache() {
                   : ['Physical therapy and exercises to strengthen and improve posture.', 'Pain relief medications or muscle relaxants as needed.', 'Local injections into trigger points in certain situations.', 'Lifestyle changes – reducing prolonged sitting, adjusting workstation ergonomics, tailored physical activity.']
                 ).map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -131,9 +121,6 @@ export default function CervicogenicHeadache() {
         {/* Bottom Line Section */}
         <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 mb-16" dir={language === 'he' ? 'rtl' : 'ltr'}>
           <div className={`flex flex-col md:flex-row items-center gap-6 text-center ${language === 'he' ? 'md:text-right' : 'md:text-left'}`}>
-            <div className="w-20 h-20 bg-gradient-to-br from-sky-500 to-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0">
-              <Info className="w-10 h-10 text-white" />
-            </div>
             <div>
               <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">{language === 'he' ? 'בשורה התחתונה' : 'The Bottom Line'}</h2>
               <p className="text-lg leading-relaxed text-gray-700">
@@ -157,7 +144,7 @@ export default function CervicogenicHeadache() {
               : 'Don\'t let neck-related headaches control your life. Schedule a consultation for an accurate diagnosis and effective treatment plan.'
             }
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href="/#contact">
               <Button size="lg" className="bg-white text-sky-600 hover:bg-sky-50 px-8 py-4 text-lg rounded-xl">
                 <Calendar className="w-5 h-5 mr-2" />

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, Brain, Target, Calendar, CheckCircle, Info } from "lucide-react";
+import { ArrowLeft, Calendar } from "lucide-react";
 import { Link, useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { useLanguage } from '../components/LanguageContext';
@@ -29,7 +29,6 @@ export default function TensionHeadache() {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-100/80 backdrop-blur-sm text-purple-700 rounded-full text-sm font-medium mb-4">
-            <Brain className="w-4 h-4" />
             {language === 'he' ? 'הטיפול הנפוץ ביותר' : 'The Most Common Headache'}
           </div>
           
@@ -65,9 +64,6 @@ export default function TensionHeadache() {
         <div className="grid lg:grid-cols-2 gap-8 mb-16" dir={language === 'he' ? 'rtl' : 'ltr'}>
           <Card className="p-8 bg-white shadow-xl border-0">
             <CardContent className="p-0">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6">
-                <Brain className="w-8 h-8 text-white" />
-              </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">{language === 'he' ? 'הבנת כאב ראש מתחי' : 'Understanding Tension Headaches'}</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
                 {language === 'he' 
@@ -80,7 +76,6 @@ export default function TensionHeadache() {
                   : ['Mild to moderate pain that doesn\'t prevent daily activities but impacts quality of life.', 'A sensation of a "tight band" or "crown" around the head.', 'Often worsens after a busy day.', 'Usually accompanied only by sensitivity to noise.']
                 ).map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -98,7 +93,6 @@ export default function TensionHeadache() {
                   : ['Emotional stress or persistent worry', 'Prolonged work at a computer or poor posture', 'Muscle tension in the neck and shoulders', 'Lack of sleep or accumulated fatigue', 'Insufficient fluid intake']
                  ).map((item, index) => (
                    <li key={index} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                  ))}
@@ -108,9 +102,6 @@ export default function TensionHeadache() {
 
           <Card className="p-8 bg-white shadow-xl border-0">
             <CardContent className="p-0">
-              <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6">
-                <Target className="w-8 h-8 text-white" />
-              </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">{language === 'he' ? 'טיפולים והתמודדות' : 'Treatments and Coping'}</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
                 {language === 'he'
@@ -124,7 +115,6 @@ export default function TensionHeadache() {
                   : ['Ensuring regular sleep and physical activity', 'Relaxation techniques, yoga, or meditation to reduce stress', 'Addressing the source of the stress', 'Medication for pain as needed', 'In cases of frequent pain – personalized preventive treatment']
                 ).map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -136,9 +126,6 @@ export default function TensionHeadache() {
         {/* Bottom Line Section */}
         <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 mb-16" dir={language === 'he' ? 'rtl' : 'ltr'}>
           <div className={`flex flex-col md:flex-row items-center gap-6 text-center ${language === 'he' ? 'md:text-right' : 'md:text-left'}`}>
-            <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center flex-shrink-0">
-              <Info className="w-10 h-10 text-white" />
-            </div>
             <div>
               <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">{language === 'he' ? 'בשורה התחתונה' : 'The Bottom Line'}</h2>
               <p className="text-lg leading-relaxed text-gray-700">
@@ -162,7 +149,7 @@ export default function TensionHeadache() {
               : 'Don\'t let tension headaches control your daily life. Schedule a consultation to develop an effective treatment plan tailored to your needs.'
             }
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href="/#contact">
               <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50 px-8 py-4 text-lg rounded-xl">
                 <Calendar className="w-5 h-5 mr-2" />

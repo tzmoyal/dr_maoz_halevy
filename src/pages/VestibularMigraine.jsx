@@ -158,7 +158,7 @@ export default function VestibularMigraine() {
               : 'Don\'t suffer from unexplained dizziness any longer. Schedule a consultation with a vestibular migraine specialist for accurate diagnosis and effective treatment.'
             }
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href="/#contact">
               <Button size="lg" className="bg-white text-indigo-600 hover:bg-indigo-50 px-8 py-4 text-lg rounded-xl">
                 <Calendar className="w-5 h-5 mr-2" />

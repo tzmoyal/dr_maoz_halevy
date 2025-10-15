@@ -28,7 +28,6 @@ export default function OtherHeadacheDisorders() {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-100/80 backdrop-blur-sm text-teal-700 rounded-full text-sm font-medium mb-4">
-            <Brain className="w-4 h-4" />
             {language === 'he' ? 'אבחון וטיפול מומחה' : 'Specialized Diagnosis & Treatment'}
           </div>
           
@@ -64,9 +63,6 @@ export default function OtherHeadacheDisorders() {
         <div className="grid lg:grid-cols-1 gap-8 mb-16" dir={language === 'he' ? 'rtl' : 'ltr'}>
           <Card className="p-8 bg-white shadow-xl border-0">
             <CardContent className="p-0">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6">
-                <Target className="w-8 h-8 text-white" />
-              </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 {language === 'he' ? 'צפלגיות אוטונומיות טריגמינליות' : 'Trigeminal Autonomic Cephalalgias'}
               </h3>
@@ -79,20 +75,16 @@ export default function OtherHeadacheDisorders() {
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start gap-2">
                   <Link to={createPageUrl('ClusterHeadache')} className="flex items-start gap-2 text-blue-600 hover:text-blue-700 transition-colors">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                     <span className="underline">{language === 'he' ? 'כאב ראש מקבצי (אשכולי)' : 'Cluster Headache'}</span>
                   </Link>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                   <span>{language === 'he' ? 'תסמונת SUNCT/SUNA' : 'SUNCT/SUNA syndrome'}</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                   <span>{language === 'he' ? 'המיקרניה הפרוקסיזמלית' : 'Paroxysmal hemicrania'}</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                   <span>{language === 'he' ? 'המיקרניה המתמשכת' : 'Hemicrania continua'}</span>
                 </li>
               </ul>
@@ -264,7 +256,7 @@ export default function OtherHeadacheDisorders() {
               : 'Don\'t let rare or difficult-to-diagnose headaches go untreated. Schedule a consultation with our headache specialist.'
             }
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href="/#contact">
               <Button size="lg" className="bg-white text-teal-600 hover:bg-teal-50 px-8 py-4 text-lg rounded-xl">
                 <Calendar className="w-5 h-5 mr-2" />

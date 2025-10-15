@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, Brain, Zap, Shield, Calendar, CheckCircle, Target } from "lucide-react";
+import { ArrowLeft, Calendar } from "lucide-react";
 import { Link, useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { useLanguage } from '../components/LanguageContext';
@@ -29,7 +29,6 @@ export default function FacialPain() {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-rose-100/80 backdrop-blur-sm text-rose-700 rounded-full text-sm font-medium mb-4">
-            <Brain className="w-4 h-4" />
             {language === 'he' ? 'טיפול מיוחד' : 'Specialized Care'}
           </div>
           
@@ -66,9 +65,6 @@ export default function FacialPain() {
         <div className="grid lg:grid-cols-2 gap-8 mb-16" dir={language === 'he' ? 'rtl' : 'ltr'}>
           <Card className="p-8 bg-white shadow-xl border-0">
             <CardContent className="p-0">
-              <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-rose-600 rounded-2xl flex items-center justify-center mb-6">
-                <Zap className="w-8 h-8 text-white" />
-              </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 {language === 'he' ? 'נוירלגיה טריגמינלית – כשהכאב מופיע כמו "זרם חשמלי" בפנים' : 'Trigeminal Neuralgia – When Pain Appears Like an "Electric Shock" in the Face'}
               </h3>
@@ -91,7 +87,6 @@ export default function FacialPain() {
                   'The pain can be triggered by even light touch, speaking, brushing teeth, chewing, or even a gust of wind.'
                 ]).map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -109,7 +104,6 @@ export default function FacialPain() {
                   'In some cases – neurological diseases such as multiple sclerosis.'
                 ]).map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -141,7 +135,6 @@ export default function FacialPain() {
                   'Surgical treatment – in resistant cases, surgery to separate the blood vessel from the nerve or targeted damage to the nerve fibers.'
                 ]).map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -151,9 +144,6 @@ export default function FacialPain() {
 
           <Card className="p-8 bg-white shadow-xl border-0">
             <CardContent className="p-0">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6">
-                <Target className="w-8 h-8 text-white" />
-              </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 {language === 'he' ? 'כאב ראש TMJ – כשהכאב מתחיל בלסת ומקרין לראש' : 'TMJ Headache – When Pain Starts in the Jaw and Radiates to the Head'}
               </h3>
@@ -176,7 +166,6 @@ export default function FacialPain() {
                   'Local trauma or injury to the jaw.'
                 ]).map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -194,7 +183,6 @@ export default function FacialPain() {
                   'Botox for the involved muscles in complex cases.'
                 ]).map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -219,9 +207,6 @@ export default function FacialPain() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-8 h-8 text-white" />
-              </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">
                 {language === 'he' ? 'כאב פנים אטיפי' : 'Atypical Facial Pain'}
               </h3>
@@ -234,9 +219,6 @@ export default function FacialPain() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Brain className="w-8 h-8 text-white" />
-              </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">
                 {language === 'he' ? 'נוירלגיה פוסט-הרפטית' : 'Post-Herpetic Neuralgia'}
               </h3>
@@ -249,9 +231,6 @@ export default function FacialPain() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Target className="w-8 h-8 text-white" />
-              </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">
                 {language === 'he' ? 'נוירלגיה גלוסופרינגיאלית' : 'Glossopharyngeal Neuralgia'}
               </h3>
@@ -276,7 +255,7 @@ export default function FacialPain() {
               : 'Don\'t suffer in silence. Schedule a consultation with our facial pain specialist to find the right treatment approach for your condition.'
             }
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href="/#contact">
               <Button size="lg" className="bg-white text-rose-600 hover:bg-rose-50 px-8 py-4 text-lg rounded-xl">
                 <Calendar className="w-5 h-5 mr-2" />

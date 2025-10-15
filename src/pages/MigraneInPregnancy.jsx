@@ -158,7 +158,7 @@ export default function MigraneInPregnancy() {
               : 'Get expert consultation for safe migraine management during pregnancy and breastfeeding. Your health and your baby\'s safety are our priority.'
             }
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href="/#contact">
               <Button size="lg" className="bg-white text-pink-600 hover:bg-pink-50 px-8 py-4 text-lg rounded-xl">
                 <Calendar className="w-5 h-5 mr-2" />
