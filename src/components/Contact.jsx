@@ -91,7 +91,7 @@ export default function Contact() {
               </div>
 
               {submitStatus === 'success' && (
-                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg" role="alert" aria-live="polite">
                   <p className="text-green-700 font-medium">
                     {language === 'he' 
                       ? 'הבקשה נשלחה בהצלחה! ניצור עמכם קשר בקרוב.' 
@@ -101,7 +101,7 @@ export default function Contact() {
               )}
 
               {submitStatus === 'error' && (
-                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg" role="alert" aria-live="assertive">
                   <p className="text-red-700 font-medium">
                     {language === 'he'
                       ? 'שגיאה בשליחת הבקשה. אנא נסו שוב או צרו קשר טלפונית.'
@@ -184,8 +184,11 @@ export default function Contact() {
               </form>
             </CardContent>
           </Card>
-          <div className="space-y-8">
-            <div className="grid gap-6">
+          <aside className="space-y-8" aria-label={language === 'he' ? 'פרטי יצירת קשר' : 'Contact information'}>
+            <section className="grid gap-6" aria-labelledby="contact-info-heading">
+              <h3 id="contact-info-heading" className="sr-only">
+                {language === 'he' ? 'פרטי יצירת קשר' : 'Contact Information'}
+              </h3>
               {t.contact.info.map((info, index) => {
                 const Icon = contactIcons[index];
                 let linkHref = null;
@@ -234,9 +237,13 @@ export default function Contact() {
                   </div>
                 );
               })}
-            </div>
-            <Card className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 border-0">
-              <CardContent className="p-0">
+            </section>
+            <section aria-labelledby="insurance-heading">
+              <h3 id="insurance-heading" className="sr-only">
+                {language === 'he' ? 'מידע על ביטוח' : 'Insurance Information'}
+              </h3>
+              <Card className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 border-0">
+                <CardContent className="p-0">
                 <div className="flex items-start gap-4">
                   <div className="w-14 h-14 rounded-2xl bg-blue-600  flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <Shield className="w-7 h-7 text-white" />
@@ -246,9 +253,10 @@ export default function Contact() {
                     <p className="text-gray-600">{t.contact.insurance.description}</p>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
+                </CardContent>
+              </Card>
+            </section>
+          </aside>
         </div>
       </div>
     </section>

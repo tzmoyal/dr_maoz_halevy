@@ -38,7 +38,7 @@ export default function Services() {
 
       <div className="max-w-7xl mx-auto px-6 py-16">
         {/* Hero Section */}
-        <div className="text-center mb-16">
+        <header className="text-center mb-16">
           <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
             {t.services.title1}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">{t.services.title2}</span>
@@ -52,10 +52,14 @@ export default function Services() {
               {language === 'he' ? 'קבעו פגישת ייעוץ' : 'Schedule Consultation'}
             </Button>
           </a>
-        </div>
+        </header>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section aria-labelledby="services-heading">
+          <h2 id="services-heading" className="sr-only">
+            {language === 'he' ? 'רשימת שירותים' : 'Services List'}
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {t.services.items.map((service, index) => {
             const pageLink = clickableServices[index];
             
@@ -95,11 +99,12 @@ export default function Services() {
               </div>
             );
           })}
-        </div>
+          </div>
+        </section>
 
         {/* Call to Action */}
-        <div className="text-center mt-16 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-3xl p-12 text-white">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+        <section className="text-center mt-16 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-3xl p-12 text-white" aria-labelledby="cta-heading">
+          <h2 id="cta-heading" className="text-3xl lg:text-4xl font-bold mb-4">
             {language === 'he' ? 'מוכנים להתחיל את הטיפול?' : 'Ready to Start Your Treatment?'}
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
@@ -108,20 +113,20 @@ export default function Services() {
               : 'Get a professional evaluation and personalized treatment plan from an expert neurologist.'
             }
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a href="/#contact">
+          <nav className="flex flex-col sm:flex-row gap-4 justify-center items-center" aria-label={language === 'he' ? 'פעולות נוספות' : 'Additional actions'}>
+            <a href="/#contact" aria-label={language === 'he' ? 'קבעו פגישת ייעוץ' : 'Book consultation'}>
               <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg rounded-xl">
                 <Calendar className="w-5 h-5 mr-2" />
                 {language === 'he' ? 'קבעו פגישת ייעוץ' : 'Book Consultation'}
               </Button>
             </a>
-            <a href="tel:035496949">
+            <a href="tel:035496949" aria-label={language === 'he' ? 'התקשרו עכשיו' : 'Call now'}>
               <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg rounded-xl">
                 {language === 'he' ? 'התקשרו עכשיו: 03-5496949' : 'Call Now: 03-5496949'}
               </Button>
             </a>
-          </div>
-        </div>
+          </nav>
+        </section>
       </div>
     </div>
   );

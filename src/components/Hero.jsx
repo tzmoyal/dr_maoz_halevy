@@ -8,21 +8,23 @@ export default function Hero() {
   const { t, language } = useLanguage();
   
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden" lang={language} dir={language === 'he' ? 'rtl' : 'ltr'}>
+      {/* Background Image - Decorative */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: 'url("https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80")',
         }}
+        role="img"
+        aria-label={language === 'he' ? 'רקע דקורטיבי - תמונה רפואית' : 'Decorative background - medical image'}
       />
       
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50/95 via-blue-50/90 to-indigo-50/95" />
       
-      {/* Neural Network Pattern Overlay */}
-      <div className="absolute inset-0">
-        <svg className="w-full h-full opacity-10" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Neural Network Pattern Overlay - Decorative */}
+      <div className="absolute inset-0" aria-hidden="true">
+        <svg className="w-full h-full opacity-10" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
             <radialGradient id="nodeGradient" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.8"/>
@@ -78,8 +80,8 @@ export default function Hero() {
         </svg>
       </div>
 
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-20">
+      {/* Background Pattern - Decorative */}
+      <div className="absolute inset-0 opacity-20" aria-hidden="true">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
         <div className="absolute top-40 right-10 w-80 h-80 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
         <div className="absolute bottom-20 left-1/2 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>
@@ -89,7 +91,7 @@ export default function Hero() {
         <div className={`flex flex-col items-center gap-12 lg:gap-16 lg:flex-row`}>
           {/* Content */}
           <div className={`space-y-8 max-w-3xl ${language === 'he' ? 'text-right' : 'text-left'}`}>
-            <div className="space-y-4">
+            <header className="space-y-4">
               <h1 className={`text-5xl lg:text-7xl font-bold text-gray-900 leading-tight`}>
                 {t.hero.title1}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">{t.hero.title2}</span>
@@ -102,27 +104,27 @@ export default function Hero() {
                   {t.hero.description2}
                 </p>
               )}
-            </div>
-            <div className={`flex flex-col sm:flex-row gap-4 justify-start`}>
-              <a href="#contact">
+            </header>
+            <nav className={`flex flex-col sm:flex-row gap-4 justify-start`} aria-label={language === 'he' ? 'פעולות ראשיות' : 'Main actions'}>
+              <a href="#contact" aria-label={language === 'he' ? 'קבעו פגישת ייעוץ' : 'Schedule consultation'}>
                 <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
                   <Calendar className={`w-5 h-5 ${language === 'he' ? 'ml-2' : 'mr-2'}`} />
                   {t.hero.button1}
                 </Button>
               </a>
-              <a href="https://wa.me/972502804723">
+              <a href="https://wa.me/972502804723" target="_blank" rel="noopener noreferrer" aria-label={language === 'he' ? 'שלח הודעה בווטסאפ' : 'Send WhatsApp message'}>
                 <Button size="lg" variant="outline" className="border-2 border-gray-300 hover:border-blue-600 bg-white/80 backdrop-blur-sm px-8 py-4 text-lg rounded-xl transition-all duration-300">
                   <MessageCircleIcon className={`w-5 h-5 ${language === 'he' ? 'ml-2' : 'mr-2'}`} />
                   {t.hero.button2}
                 </Button>
               </a>
-              <a href="tel:035496949">
+              <a href="tel:035496949" aria-label={language === 'he' ? 'התקשרו עכשיו' : 'Call now'}>
                 <Button size="lg" variant="outline" className="border-2 border-gray-300 hover:border-blue-600 bg-white/80 backdrop-blur-sm px-8 py-4 text-lg rounded-xl transition-all duration-300">
                   <Phone className={`w-5 h-5 ${language === 'he' ? 'ml-2' : 'mr-2'}`} />
                   {t.hero.button3}
                 </Button>
               </a>
-            </div>
+            </nav>
             <div className={`flex items-center gap-6 text-gray-700 justify-start`}>
               <div className="flex items-center gap-2">
                 <MapPin className="w-5 h-5" />
@@ -142,7 +144,10 @@ export default function Hero() {
         </div>
 
         {/* BELOW: Centered Facebook Reel */}
-        <div className="mt-12 lg:mt-16 flex justify-center">
+        <section className="mt-12 lg:mt-16 flex justify-center" aria-labelledby="video-heading">
+          <h2 id="video-heading" className="sr-only">
+            {language === 'he' ? 'סרטון מידע' : 'Information Video'}
+          </h2>
           <div className="rounded-2xl shadow-xl ring-1 ring-black/5 overflow-hidden bg-white/70 backdrop-blur">
             <iframe
               src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F997492598398317%2F&show_text=true&width=360&t=0"
@@ -153,10 +158,11 @@ export default function Hero() {
               frameBorder="0"
               allowFullScreen={true}
               allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-              title={language === 'he' ? 'סרטון פייסבוק' : 'Facebook video'}
+              title={language === 'he' ? 'סרטון פייסבוק - מידע על הטיפול' : 'Facebook video - Treatment information'}
+              aria-label={language === 'he' ? 'סרטון מידע על הטיפול בכאבי ראש' : 'Video about headache treatment'}
             />
           </div>
-        </div>
+        </section>
       </div>
     </section>
   );
