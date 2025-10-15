@@ -1,30 +1,12 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, Brain, Headphones, Bone, Flame, AlertTriangle, Smile, Activity, Calendar } from "lucide-react";
+import { ArrowLeft, Calendar } from "lucide-react";
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { useLanguage } from '../components/LanguageContext';
 
-const serviceIcons = [
-  Brain,        // Migraine Management - Brain/neurological
-  Headphones,   // Tension Headache - Stress/tension relief
-  Bone,         // Cervicogenic Headache - Neck/spine related
-  Flame,        // Cluster Headache - Intense, burning pain
-  AlertTriangle, // Other Headache Disorders - Complex/rare conditions
-  Smile,        // Facial Pain - Face/trigeminal related
-  Activity      // Other Neurological Disorders - General neurological activity
-];
-
-const serviceColors = [
-  "from-blue-500 to-indigo-600",    // Migraine - Professional blue
-  "from-purple-500 to-pink-600",    // Tension - Calming purple
-  "from-teal-500 to-cyan-600",      // Cervicogenic - Soothing teal
-  "from-red-500 to-orange-600",     // Cluster - Intense red (severe pain)
-  "from-amber-500 to-yellow-600",   // Other Headache - Warning amber
-  "from-green-500 to-emerald-600",  // Facial Pain - Gentle green
-  "from-slate-500 to-gray-600"      // Neurological - Professional gray
-];
+// Icons and colors removed for cleaner design
 
 const clickableServices = {
   0: 'MigraineTreatment',
@@ -75,17 +57,12 @@ export default function Services() {
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {t.services.items.map((service, index) => {
-            const Icon = serviceIcons[index];
             const pageLink = clickableServices[index];
             
             const cardContent = (
               <Card className="group hover:shadow-2xl transition-all duration-500 border-0 bg-gradient-to-br from-gray-50 to-white h-full">
                 <CardContent className="p-8">
-                  <div className="text-center space-y-6">
-                    <div className={`w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br ${serviceColors[index]} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                      <Icon className="w-8 h-8 text-white" />
-                    </div>
-                    
+                  <div className="text-center space-y-4">
                     <div className="space-y-3">
                       <h3 className="text-xl font-bold text-gray-900">
                         {service.title}

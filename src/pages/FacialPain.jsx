@@ -155,7 +155,7 @@ export default function FacialPain() {
                 <Target className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                {language === 'he' ? 'הפרעת TMJ – כשהכאב מתחיל בלסת ומקרין לראש' : 'TMJ Disorder – When Pain Starts in the Jaw and Radiates to the Head'}
+                {language === 'he' ? 'כאב ראש TMJ – כשהכאב מתחיל בלסת ומקרין לראש' : 'TMJ Headache – When Pain Starts in the Jaw and Radiates to the Head'}
               </h3>
               <p className="text-gray-600 leading-relaxed mb-4">
                 {language === 'he'
