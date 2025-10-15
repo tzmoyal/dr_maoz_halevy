@@ -62,7 +62,7 @@ const Reviews = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* <div className="grid md:grid-cols-3 gap-8">
           {currentReviews.map((review, index) => (
             <div key={index} className="bg-gray-50 p-6 rounded-lg">
               <div className="flex items-center mb-4">
@@ -79,7 +79,7 @@ const Reviews = () => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
 
       {/* Structured Data for Reviews */}

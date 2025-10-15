@@ -205,10 +205,10 @@ export default function Contact() {
             <Card className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 border-0">
               <CardContent className="p-0">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
-                    <Shield className="w-6 h-6 text-white" />
+                  <div className="w-14 h-14 rounded-2xl bg-blue-600  flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <Shield className="w-7 h-7 text-white" />
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <h3 className="text-lg font-bold text-gray-900 mb-2">{t.contact.insurance.title}</h3>
                     <p className="text-gray-600">{t.contact.insurance.description}</p>
                   </div>

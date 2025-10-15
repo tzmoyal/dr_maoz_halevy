@@ -20,13 +20,12 @@ export default function Testimonials() {
         <div className="max-w-4xl mx-auto">
             <iframe
                 frameBorder="0"
-                height="270px"
                 width="100%"
                 loading="lazy"
                 allowFullScreen
                 src="https://www.medreviews.co.il/provider/dr-maoz-halevy-eyal/reviews-widget?show-header=true&slide-switch-interval=4500&bg=ffffff&controls-color="
                 title="Patient Testimonials"
-                className="rounded-xl shadow-sm"
+                className="rounded-xl shadow-sm h-80 xs:h-96 sm:h-[28rem] md:h-64 lg:h-72 xl:h-80"
             ></iframe>
             <div className="mt-4 text-center text-sm text-gray-500">
                 {t.language === 'he' ? (
