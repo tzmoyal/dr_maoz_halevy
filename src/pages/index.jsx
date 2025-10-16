@@ -77,6 +77,8 @@ function PagesContent() {
 
     React.useEffect(() => {
         const htmlEl = document.documentElement;
+        if (!htmlEl) return; // Safety check
+        
         const previousScrollBehavior = htmlEl.style.scrollBehavior;
         htmlEl.style.scrollBehavior = 'auto';
 
@@ -84,7 +86,7 @@ function PagesContent() {
         if (hash) {
             const id = hash.replace('#', '');
             const el = document.getElementById(id);
-            if (el) {
+            if (el && el.scrollIntoView) {
                 el.scrollIntoView({ behavior: 'auto', block: 'start' });
             } else {
                 window.scrollTo({ top: 0, behavior: 'auto' });

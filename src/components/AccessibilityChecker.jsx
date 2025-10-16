@@ -4,51 +4,66 @@ const AccessibilityChecker = () => {
   useEffect(() => {
     // Add accessibility testing utilities
     const checkAccessibility = () => {
-      // Check for missing alt attributes
-      const images = document.querySelectorAll('img');
-      images.forEach(img => {
-        if (!img.alt && !img.getAttribute('aria-hidden')) {
-          console.warn('Image missing alt attribute:', img.src);
-        }
-      });
+      // Safety check for DOM availability
+      if (!document || !document.querySelectorAll) {
+        console.warn('DOM not ready for accessibility checks');
+        return;
+      }
 
-      // Check for missing form labels
-      const inputs = document.querySelectorAll('input, textarea, select');
-      inputs.forEach(input => {
-        const id = input.id;
-        const label = document.querySelector(`label[for="${id}"]`);
-        const ariaLabel = input.getAttribute('aria-label');
-        const ariaLabelledBy = input.getAttribute('aria-labelledby');
-        
-        if (!label && !ariaLabel && !ariaLabelledBy && !input.getAttribute('aria-hidden')) {
-          console.warn('Form control missing accessible name:', input);
-        }
-      });
+      try {
+        // Check for missing alt attributes
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+          if (!img.alt && !img.getAttribute('aria-hidden')) {
+            console.warn('Image missing alt attribute:', img.src);
+          }
+        });
 
-      // Check heading hierarchy
-      const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
-      let lastLevel = 0;
-      headings.forEach(heading => {
-        const level = parseInt(heading.tagName.charAt(1));
-        if (level > lastLevel + 1) {
-          console.warn('Heading hierarchy skip detected:', heading);
-        }
-        lastLevel = level;
-      });
+        // Check for missing form labels
+        const inputs = document.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+          const id = input.id;
+          const label = document.querySelector(`label[for="${id}"]`);
+          const ariaLabel = input.getAttribute('aria-label');
+          const ariaLabelledBy = input.getAttribute('aria-labelledby');
+          
+          if (!label && !ariaLabel && !ariaLabelledBy && !input.getAttribute('aria-hidden')) {
+            console.warn('Form control missing accessible name:', input);
+          }
+        });
 
-      // Check for sufficient color contrast (basic check)
-      const elements = document.querySelectorAll('*');
-      elements.forEach(el => {
-        const style = window.getComputedStyle(el);
-        const color = style.color;
-        const backgroundColor = style.backgroundColor;
-        
-        // Basic contrast check (simplified)
-        if (color && backgroundColor && color !== backgroundColor) {
-          // This is a simplified check - in production, use a proper contrast checker
-          console.log('Color contrast check needed for:', el);
-        }
-      });
+        // Check heading hierarchy
+        const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        let lastLevel = 0;
+        headings.forEach(heading => {
+          const level = parseInt(heading.tagName.charAt(1));
+          if (level > lastLevel + 1) {
+            console.warn('Heading hierarchy skip detected:', heading);
+          }
+          lastLevel = level;
+        });
+
+        // Check for sufficient color contrast (basic check)
+        const elements = document.querySelectorAll('*');
+        elements.forEach(el => {
+          try {
+            const style = window.getComputedStyle(el);
+            const color = style.color;
+            const backgroundColor = style.backgroundColor;
+            
+            // Basic contrast check (simplified)
+            if (color && backgroundColor && color !== backgroundColor) {
+              // This is a simplified check - in production, use a proper contrast checker
+              console.log('Color contrast check needed for:', el);
+            }
+          } catch (error) {
+            // Skip elements that can't be styled
+            console.debug('Skipping element for contrast check:', error);
+          }
+        });
+      } catch (error) {
+        console.warn('Error during accessibility check:', error);
+      }
     };
 
     // Run checks after component mount
@@ -60,9 +75,9 @@ const AccessibilityChecker = () => {
       if (e.altKey && e.key === 'm') {
         e.preventDefault();
         const main = document.querySelector('main');
-        if (main) {
+        if (main && main.focus) {
           main.focus();
-          main.scrollIntoView();
+          main.scrollIntoView({ behavior: 'smooth' });
         }
       }
       
@@ -70,17 +85,29 @@ const AccessibilityChecker = () => {
       if (e.altKey && e.key === 'n') {
         e.preventDefault();
         const nav = document.querySelector('nav');
-        if (nav) {
+        if (nav && nav.focus) {
           nav.focus();
-          nav.scrollIntoView();
+          nav.scrollIntoView({ behavior: 'smooth' });
         }
       }
     };
 
-    document.addEventListener('keydown', handleKeyDown);
+    // Only add event listener if document is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('keydown', handleKeyDown);
+      });
+    } else {
+      document.addEventListener('keydown', handleKeyDown);
+    }
 
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
+      // Clean up event listeners safely
+      try {
+        document.removeEventListener('keydown', handleKeyDown);
+      } catch (error) {
+        console.warn('Error removing event listener:', error);
+      }
     };
   }, []);
 
