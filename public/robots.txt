@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://dr-maoz-halevy.vercel.app/sitemap.xml
+Sitemap: https://dr-maozhalevy.co.il/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
