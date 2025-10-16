@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Calendar, Phone, MapPin, Award, ExternalLink, MessageCircleIcon } from "lucide-react";
 import { useLanguage } from './LanguageContext';
+import SafeFacebookIframe from './SafeFacebookIframe';
 
 export default function Hero() {
   const { t, language } = useLanguage();
@@ -148,20 +149,13 @@ export default function Hero() {
           <h2 id="video-heading" className="sr-only">
             {language === 'he' ? 'סרטון מידע' : 'Information Video'}
           </h2>
-          <div className="rounded-2xl shadow-xl ring-1 ring-black/5 overflow-hidden bg-white/70 backdrop-blur">
-            <iframe
-              src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F997492598398317%2F&show_text=true&width=360&t=0"
-              width="360"
-              height="660"
-              style={{ border: 'none', overflow: 'hidden' }}
-              scrolling="no"
-              frameBorder="0"
-              allowFullScreen={true}
-              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-              title={language === 'he' ? 'סרטון פייסבוק - מידע על הטיפול' : 'Facebook video - Treatment information'}
-              aria-label={language === 'he' ? 'סרטון מידע על הטיפול בכאבי ראש' : 'Video about headache treatment'}
-            />
-          </div>
+          <SafeFacebookIframe
+            src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F997492598398317%2F&show_text=true&width=360&t=0"
+            width="360"
+            height="660"
+            title={language === 'he' ? 'סרטון פייסבוק - מידע על הטיפול' : 'Facebook video - Treatment information'}
+            ariaLabel={language === 'he' ? 'סרטון מידע על הטיפול בכאבי ראש' : 'Video about headache treatment'}
+          />
         </section>
       </div>
     </section>
