@@ -28,10 +28,22 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    sourcemap: false,
+    sourcemap: true, // Enable source maps for better debugging
+    minify: 'terser', // Use terser for better minification
+    terserOptions: {
+      compress: {
+        drop_console: true, // Remove console logs in production
+        drop_debugger: true
+      }
+    },
     rollupOptions: {
       output: {
-        manualChunks: undefined,
+        manualChunks: {
+          // Split vendor libraries into separate chunks
+          vendor: ['react', 'react-dom'],
+          router: ['react-router-dom'],
+          ui: ['lucide-react']
+        },
         assetFileNames: 'assets/[name].[hash][extname]',
         chunkFileNames: 'assets/[name].[hash].js',
         entryFileNames: 'assets/[name].[hash].js'
