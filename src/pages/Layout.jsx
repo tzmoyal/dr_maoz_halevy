@@ -28,11 +28,19 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           <Link to="/" className="flex items-center gap-3">
             <div className="w-16 h-16 rounded-lg overflow-hidden bg-white shadow-sm">
-              <img 
-                src="/assets/logo.png" 
-                alt="Dr. Eyal Maoz Halevy Logo"
-                className="w-full h-full object-contain"
-              />
+              <picture>
+                <source srcSet="/assets/optimized/logo@2x.avif" type="image/avif" />
+                <source srcSet="/assets/optimized/logo@2x.webp" type="image/webp" />
+                <img 
+                  src="/assets/optimized/logo@2x.webp" 
+                  alt="Dr. Eyal Maoz Halevy Logo"
+                  className="w-full h-full object-contain"
+                  width="86"
+                  height="128"
+                  decoding="async"
+                  loading="eager"
+                />
+              </picture>
             </div>
             <div>
               <h1 className="font-bold text-gray-900">{t.header.drName}</h1>
