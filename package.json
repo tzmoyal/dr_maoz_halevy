@@ -5,13 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npm run optimize:images && npm run inline:critical",
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "node server.js",
     "dev:full": "concurrently \"npm run server\" \"npm run dev\"",
-    "optimize:images": "ts-node scripts/optimize-images.ts",
-    "postbuild": "npm run optimize:images"
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "inline:critical": "node scripts/inline-critical-css.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^4.1.2",
@@ -82,6 +82,7 @@
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
     "concurrently": "^9.2.1",
+    "critters": "^0.0.23",
     "eslint": "^9.19.0",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.0.0",

@@ -29,10 +29,10 @@ const Header = () => {
           <Link to="/" className="flex items-center gap-3">
             <div className="w-16 h-16 rounded-lg overflow-hidden bg-white shadow-sm">
               <picture>
-                <source srcSet="/assets/optimized/logo@2x.avif" type="image/avif" />
-                <source srcSet="/assets/optimized/logo@2x.webp" type="image/webp" />
+                <source srcSet="/assets/opt/logo@2x.avif" type="image/avif" />
+                <source srcSet="/assets/opt/logo@2x.webp" type="image/webp" />
                 <img 
-                  src="/assets/optimized/logo@2x.webp" 
+                  src="/assets/opt/logo@2x.webp" 
                   alt="Dr. Eyal Maoz Halevy Logo"
                   className="w-full h-full object-contain"
                   width="86"

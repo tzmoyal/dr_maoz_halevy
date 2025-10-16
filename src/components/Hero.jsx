@@ -137,21 +137,21 @@ export default function Hero() {
             <picture>
               <source
                 type="image/avif"
-                srcSet="/assets/optimized/hero-image-400.avif 400w, /assets/optimized/hero-image-800.avif 800w, /assets/optimized/hero-image-1200.avif 1200w"
+                srcSet="/assets/opt/hero-image-400.avif 400w, /assets/opt/hero-image-800.avif 800w, /assets/opt/hero-image-1200.avif 1200w"
               />
               <source
                 type="image/webp"
-                srcSet="/assets/optimized/hero-image-400.webp 400w, /assets/optimized/hero-image-800.webp 800w, /assets/optimized/hero-image-1200.webp 1200w"
+                srcSet="/assets/opt/hero-image-400.webp 400w, /assets/opt/hero-image-800.webp 800w, /assets/opt/hero-image-1200.webp 1200w"
               />
               <img
-                src="/assets/optimized/hero-image-800.webp"
+                src="/assets/opt/hero-image-800.webp"
                 alt={language === 'he' ? 'ד"ר אייל מעוז הלוי - נוירולוג ומומחה לכאבי ראש' : 'Dr. Eyal Maoz Halevy - Neurologist and Headache Specialist'}
                 className="w-[280px] sm:w-[360px] lg:w-[420px] aspect-[3/4] object-cover rounded-2xl shadow-2xl ring-1 ring-black/5"
                 width="420"
                 height="560"
                 sizes="(max-width: 640px) 280px, (max-width: 1024px) 360px, 420px"
                 decoding="async"
-                loading="eager"
+                fetchPriority="high"
               />
             </picture>
           </div>
@@ -174,6 +174,7 @@ export default function Hero() {
               allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
               title={language === 'he' ? 'סרטון פייסבוק - מידע על הטיפול' : 'Facebook video - Treatment information'}
               aria-label={language === 'he' ? 'סרטון מידע על הטיפול בכאבי ראש' : 'Video about headache treatment'}
+              loading="lazy"
             />
           </div>
         </section>
