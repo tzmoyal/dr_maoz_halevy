@@ -51,6 +51,7 @@ export default function About() {
               {t.about.credentials.map((text, index) => {
                 const Icon = credentialIcons[index];
                 const isFellowship = text.includes('Fellowship in Headache and Facial Pain') || text.includes('התמחות-על ברפואת כאבי ראש ופנים');
+                const isShebaSpecialization = text.includes('התמחות בנוירולוגיה במרכז הרפואי שיבא') || text.includes('Neurology specialization at Sheba Medical Center');
                 
                 return (
                   <div key={index} className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm">
@@ -60,6 +61,15 @@ export default function About() {
                     {isFellowship ? (
                       <a 
                         href="https://hartfordhealthcare.org/health-professionals/education/residencies-fellowships/headache-and-facial-pain-fellowship#:~:text=Our%20faculty%20takes%20an%20active,starts%20July%201%20each%20year."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-700 hover:text-gray-900 font-medium underline transition-colors cursor-pointer"
+                      >
+                        {text}
+                      </a>
+                    ) : isShebaSpecialization ? (
+                      <a 
+                        href="https://www.sheba.co.il/%D7%90%D7%99%D7%99%D7%9C-%D7%93%D7%95%D7%93-%D7%9E%D7%A2%D7%95%D7%96-%D7%94%D7%9C%D7%95%D7%99"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-gray-700 hover:text-gray-900 font-medium underline transition-colors cursor-pointer"
