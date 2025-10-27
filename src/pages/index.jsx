@@ -75,6 +75,22 @@ function PagesContent() {
     const navType = useNavigationType();
     const currentPage = _getCurrentPage(location.pathname);
 
+    // Update canonical URL when route changes
+    React.useEffect(() => {
+        const baseUrl = 'https://dr-maozhalevy.co.il';
+        const path = location.pathname + (location.search || '');
+        const canonicalUrl = `${baseUrl}${path}`;
+
+        // Remove existing canonical link if any
+        let existingCanonical = document.querySelector('link[rel="canonical"]');
+        if (!existingCanonical) {
+            existingCanonical = document.createElement('link');
+            existingCanonical.setAttribute('rel', 'canonical');
+            document.head.appendChild(existingCanonical);
+        }
+        existingCanonical.setAttribute('href', canonicalUrl);
+    }, [location.pathname, location.search]);
+
     React.useEffect(() => {
         const htmlEl = document.documentElement;
         if (!htmlEl) return; // Safety check
