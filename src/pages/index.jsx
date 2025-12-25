@@ -78,10 +78,14 @@ function PagesContent() {
     // Update canonical URL when route changes
     React.useEffect(() => {
         const baseUrl = 'https://dr-maozhalevy.co.il';
-        const path = location.pathname + (location.search || '');
-        const canonicalUrl = `${baseUrl}${path}`;
+        // Normalize path: remove trailing slash except for root
+        let path = location.pathname;
+        if (path !== '/' && path.endsWith('/')) {
+            path = path.slice(0, -1);
+        }
+        const canonicalUrl = `${baseUrl}${path}${location.search || ''}`;
 
-        // Remove existing canonical link if any
+        // Get or create canonical link
         let existingCanonical = document.querySelector('link[rel="canonical"]');
         if (!existingCanonical) {
             existingCanonical = document.createElement('link');
