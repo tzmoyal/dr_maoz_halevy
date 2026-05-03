@@ -45,10 +45,18 @@ export default function Contact() {
   
       // Read once to avoid “Unexpected end of JSON input”
       const text = await res.text();
-  
+
       if (!res.ok) {
-        // Surface the server error (e.g., 405/500) instead of crashing on JSON parse
-        throw new Error(`API ${res.status}: ${text || '(no body)'}`);
+        let detail = text?.trim() || res.statusText || '(no body)';
+        try {
+          const errJson = text ? JSON.parse(text) : null;
+          if (errJson && (errJson.message || errJson.error)) {
+            detail = [errJson.message, errJson.error].filter(Boolean).join(' — ');
+          }
+        } catch {
+          /* keep detail as raw text */
+        }
+        throw new Error(`API ${res.status}: ${detail}`);
       }
   
       const data = text ? JSON.parse(text) : {};

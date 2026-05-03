@@ -10,7 +10,14 @@ export default defineConfig({
     allowedHosts: true,
     port: 5173,
     strictPort: false,
-    host: true
+    host: true,
+    // Forward /api to Express (server.js). Run `npm run server` or `npm run dev:full`.
+    proxy: {
+      '/api': {
+        target: process.env.VITE_DEV_API_URL || 'http://localhost:3000',
+        changeOrigin: true,
+      },
+    },
   },
   resolve: {
     alias: {

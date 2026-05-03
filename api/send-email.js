@@ -1,5 +1,25 @@
 import nodemailer from 'nodemailer';
 
+const REQUIRED_EMAIL_ENV = ['GMAIL_USER', 'GMAIL_APP_PASSWORD', 'EMAIL_FROM', 'EMAIL_TO'];
+
+function getMissingEmailEnvKeys() {
+  return REQUIRED_EMAIL_ENV.filter((key) => !process.env[key]?.trim());
+}
+
+function parseBody(req) {
+  const raw = req.body;
+  if (raw == null) return null;
+  if (typeof raw === 'object' && !Buffer.isBuffer(raw)) return raw;
+  if (typeof raw === 'string') {
+    try {
+      return JSON.parse(raw);
+    } catch {
+      return null;
+    }
+  }
+  return null;
+}
+
 const createEmailTemplate = (formData) => {
   const headacheType = formData.headacheType || 'לא צוין';
   return `
@@ -27,64 +47,88 @@ const createEmailTemplate = (formData) => {
 };
 
 export default async (req, res) => {
-  // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') {
-    res.status(200).end();
+    res.status(204).end();
     return;
   }
 
   if (req.method !== 'POST') {
+    res.setHeader('Allow', 'POST, OPTIONS');
     return res.status(405).json({ success: false, message: 'Method not allowed' });
   }
 
   try {
-    const { name, phone, email, headacheType } = req.body;
-
-    // Validate required fields
-    if (!name || !phone || !email) {
-      return res.status(400).json({ 
-        success: false, 
-        message: 'Missing required fields' 
+    const missingEnv = getMissingEmailEnvKeys();
+    if (missingEnv.length > 0) {
+      return res.status(503).json({
+        success: false,
+        message:
+          'Email is not configured. Set these in the Vercel project Environment Variables: ' +
+          missingEnv.join(', '),
+        missingEnv,
       });
     }
 
-    // Create transporter
+    const body = parseBody(req);
+    if (!body) {
+      return res.status(400).json({
+        success: false,
+        message: 'Expected JSON body with name, phone, and email',
+      });
+    }
+
+    const { name, phone, email, headacheType, message } = body;
+
+    if (!name || !phone || !email) {
+      return res.status(400).json({
+        success: false,
+        message: 'Missing required fields',
+      });
+    }
+
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
       auth: {
         user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_APP_PASSWORD
-      }
+        pass: process.env.GMAIL_APP_PASSWORD,
+      },
     });
 
-    // Email options
+    const from = process.env.EMAIL_FROM?.trim();
+    const to = process.env.EMAIL_TO?.trim();
+
     const mailOptions = {
-      from: process.env.EMAIL_FROM,
-      to: process.env.EMAIL_TO,
+      from,
+      to,
+      replyTo: email,
       subject: `בקשה לקביעת תור - ${name}`,
-      html: createEmailTemplate({ name, phone, email, headacheType })
+      html: createEmailTemplate({ name, phone, email, headacheType, message }),
     };
 
-    // Send email
     const info = await transporter.sendMail(mailOptions);
-    
-    console.log('Email sent:', info.messageId);
-    res.status(200).json({ 
-      success: true, 
-      message: 'Email sent successfully',
-      messageId: info.messageId
-    });
 
+    console.log('Email sent:', info.messageId);
+    return res.status(200).json({
+      success: true,
+      message: 'Email sent successfully',
+      messageId: info.messageId,
+    });
   } catch (error) {
     console.error('Error sending email:', error);
-    res.status(500).json({ 
-      success: false, 
-      message: 'Failed to send email',
-      error: error.message
-    });
+    const errMsg =
+      error instanceof Error ? error.message : typeof error === 'string' ? error : 'Unknown error';
+    if (!res.headersSent) {
+      return res.status(500).json({
+        success: false,
+        message: 'Failed to send email',
+        error: errMsg,
+      });
+    }
   }
 };

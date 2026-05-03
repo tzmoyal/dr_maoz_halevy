@@ -12,14 +12,27 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Create transporter for Gmail
+const REQUIRED_EMAIL_ENV = [
+  'GMAIL_USER',
+  'GMAIL_APP_PASSWORD',
+  'EMAIL_FROM',
+  'EMAIL_TO',
+];
+
+function getMissingEmailEnvKeys() {
+  return REQUIRED_EMAIL_ENV.filter((key) => !process.env[key]?.trim());
+}
+
+// Create transporter for Gmail (same SMTP settings as api/send-email.js on Vercel)
 const createTransporter = () => {
   return nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
       user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_APP_PASSWORD
-    }
+      pass: process.env.GMAIL_APP_PASSWORD,
+    },
   });
 };
 
@@ -57,6 +70,17 @@ const createEmailTemplate = (formData) => {
 // API endpoint for sending emails
 app.post('/api/send-email', async (req, res) => {
   try {
+    const missingEnv = getMissingEmailEnvKeys();
+    if (missingEnv.length > 0) {
+      return res.status(503).json({
+        success: false,
+        message:
+          'Email is not configured on the server. Add these to a .env file and restart the API: ' +
+          missingEnv.join(', '),
+        missingEnv,
+      });
+    }
+
     const { name, phone, email, headacheType, message } = req.body;
 
     // Validate required fields
@@ -74,6 +98,7 @@ app.post('/api/send-email', async (req, res) => {
     const mailOptions = {
       from: process.env.EMAIL_FROM,
       to: process.env.EMAIL_TO,
+      replyTo: email,
       subject: `בקשה לקביעת תור - ${name}`,
       html: createEmailTemplate({ name, phone, email, headacheType, message })
     };
@@ -91,11 +116,15 @@ app.post('/api/send-email', async (req, res) => {
 
   } catch (error) {
     console.error('Error sending email:', error);
-    res.status(500).json({ 
-      success: false, 
-      message: 'Failed to send email',
-      error: error.message
-    });
+    const errMsg =
+      error instanceof Error ? error.message : typeof error === 'string' ? error : 'Unknown error';
+    if (!res.headersSent) {
+      res.status(500).json({
+        success: false,
+        message: 'Failed to send email',
+        error: errMsg,
+      });
+    }
   }
 });
 
@@ -108,6 +137,12 @@ app.get('/api/health', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
   console.log(`Health check: http://localhost:${PORT}/api/health`);
+  const missing = getMissingEmailEnvKeys();
+  if (missing.length > 0) {
+    console.warn(
+      `[send-email] Missing env: ${missing.join(', ')} — add to .env and restart, or /api/send-email returns 503.`,
+    );
+  }
 });
 
 export default app;
