@@ -81,7 +81,7 @@ app.post('/api/send-email', async (req, res) => {
       });
     }
 
-    const { name, phone, email, headacheType, message } = req.body;
+    const { name, phone, email, headacheType, message } = req.body || {};
 
     // Validate required fields
     if (!name || !phone || !email) {
@@ -137,6 +137,22 @@ app.post('/api/send-email', async (req, res) => {
 // Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
+});
+
+// JSON errors for /api (avoids empty 500 bodies when the default HTML handler would run)
+app.use((err, req, res, next) => {
+  if (res.headersSent) {
+    return;
+  }
+  if (!req.originalUrl.startsWith('/api')) {
+    next(err);
+    return;
+  }
+  const status = Number(err.status || err.statusCode) || 500;
+  res.status(status).json({
+    success: false,
+    message: err.message || 'Server error',
+  });
 });
 
 // Start server

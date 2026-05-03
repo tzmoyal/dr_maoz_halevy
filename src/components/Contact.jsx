@@ -50,8 +50,8 @@ export default function Contact() {
         let detail = text?.trim() || res.statusText || '(no body)';
         try {
           const errJson = text ? JSON.parse(text) : null;
-          if (errJson && (errJson.message || errJson.error)) {
-            detail = [errJson.message, errJson.error].filter(Boolean).join(' — ');
+          if (errJson && (errJson.message || errJson.error || errJson.hint)) {
+            detail = [errJson.message, errJson.error, errJson.hint].filter(Boolean).join(' — ');
           }
         } catch {
           /* keep detail as raw text */

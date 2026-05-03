@@ -151,7 +151,7 @@ export default function Hero() {
                 height="560"
                 sizes="(max-width: 640px) 280px, (max-width: 1024px) 360px, 420px"
                 decoding="async"
-                fetchPriority="high"
+                fetchpriority="high"
               />
             </picture>
           </div>
