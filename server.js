@@ -118,11 +118,17 @@ app.post('/api/send-email', async (req, res) => {
     console.error('Error sending email:', error);
     const errMsg =
       error instanceof Error ? error.message : typeof error === 'string' ? error : 'Unknown error';
+    const isSmtpAuth =
+      /535|Invalid login|authentication failed|bad credentials/i.test(errMsg);
     if (!res.headersSent) {
-      res.status(500).json({
+      res.status(isSmtpAuth ? 502 : 500).json({
         success: false,
         message: 'Failed to send email',
         error: errMsg,
+        ...(isSmtpAuth && {
+          hint:
+            'Gmail rejected the SMTP password. Use a Google App Password (2FA required), not your normal password, in .env as GMAIL_APP_PASSWORD.',
+        }),
       });
     }
   }

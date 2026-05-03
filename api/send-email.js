@@ -123,11 +123,17 @@ export default async (req, res) => {
     console.error('Error sending email:', error);
     const errMsg =
       error instanceof Error ? error.message : typeof error === 'string' ? error : 'Unknown error';
+    const isSmtpAuth =
+      /535|Invalid login|authentication failed|bad credentials/i.test(errMsg);
     if (!res.headersSent) {
-      return res.status(500).json({
+      return res.status(isSmtpAuth ? 502 : 500).json({
         success: false,
         message: 'Failed to send email',
         error: errMsg,
+        ...(isSmtpAuth && {
+          hint:
+            'Gmail rejected the SMTP password. In Google Account: enable 2-Step Verification, create an App Password (not your normal password), set GMAIL_USER and GMAIL_APP_PASSWORD in Vercel Production env, then redeploy.',
+        }),
       });
     }
   }
